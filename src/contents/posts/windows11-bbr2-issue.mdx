@@ -1,0 +1,80 @@
+---
+title: Windows 11 BBR2 网络优化指南：收益与隐患
+published: 2025-07-18
+description: 详细介绍 Windows 11 开启 BBR2 的方法、优势及可能遇到的问题与解决方案
+tags: [Windows, 网络优化, BBR2]
+category: 运维
+draft: false
+---
+
+## 众所周知？
+
+在 Linux 系统开启 BBR / BBR2 非常简单，只需要执行以下命令：
+
+```bash
+sudo echo "net.core.default_qdisc=fq" >> /etc/sysctl.conf
+sudo echo "net.ipv4.tcp_congestion_control=bbr" >> /etc/sysctl.conf
+sysctl -p
+```
+
+就能获得很明显的网络性能提升。
+
+但是在 Windows 11 上开启 BBR2 却并没有那么多人知道。
+
+## 在 Windows 11 上开启 BBR / BBR2
+
+使用**管理员权限**运行命令提示符或 PowerShell，然后执行以下命令：
+
+```cmd
+netsh int tcp set supplemental Template=Internet CongestionProvider=bbr2
+netsh int tcp set supplemental Template=Datacenter CongestionProvider=bbr2
+netsh int tcp set supplemental Template=Compat CongestionProvider=bbr2
+netsh int tcp set supplemental Template=DatacenterCustom CongestionProvider=bbr2
+netsh int tcp set supplemental Template=InternetCustom CongestionProvider=bbr2
+```
+
+**改动即时生效**，不需要重启。
+
+可以使用以下 PowerShell 命令来查看当前生效的 TCP 拥塞控制算法：
+
+```powershell
+Get-NetTCPSetting | Select SettingName, CongestionProvider
+```
+
+## 问题
+
+在 Linux 系统开启 BBR / BBR2 后，网络性能提升非常明显，而且不会碰到什么问题。
+
+但是在 Windows 中，开启 BBR2 可能会导致本地 TCP 连接异常，表现为无法正常使用 adb, steam, ABDownloadManager 的浏览器集成, VSCode 部分插件的使用等。（[来源](https://t.me/projectXray/4305006)）
+
+这种情况可以使用以下命令来修复：
+
+```cmd
+netsh int ipv6 set global loopbacklargemtu=disable
+netsh int ipv4 set global loopbacklargemtu=disable
+```
+
+但这样的方法可能会导致本地环回（loopback）连接的 MTU（最大传输单元）变小，从而影响某些应用和系统的性能。
+
+或者恢复 `Internet` 的算法为CUBIC（[来源](https://dev.moe/2829)）：
+
+```cmd
+netsh int tcp set supplemental template=Internet congestionprovider=CUBIC
+```
+
+但是这个方法实际上是关闭了 BBR2 的效果。
+
+如果在启用 BBR2 后遇到了网络相关问题，或者只是单纯想要恢复到默认的 TCP 拥塞控制算法，可以使用以下命令：
+
+```cmd
+netsh int tcp set supplemental template=Internet congestionprovider=CUBIC
+netsh int tcp set supplemental template=InternetCustom congestionprovider=CUBIC
+netsh int tcp set supplemental template=Datacenter congestionprovider=CUBIC
+netsh int tcp set supplemental template=DatacenterCustom congestionprovider=CUBIC
+netsh int tcp set supplemental template=Compat congestionprovider=NewReno
+
+netsh int ipv6 set global loopbacklargemtu=enable
+netsh int ipv4 set global loopbacklargemtu=enable
+```
+
+可以在需要使用 BBR2 的时候临时开启，虽然这样会有些麻烦，但至少可以避免很多网络问题。

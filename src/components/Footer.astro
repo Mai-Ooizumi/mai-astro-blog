@@ -1,0 +1,214 @@
+---
+import { Icon } from "astro-icon/components";
+import YukinaConfig from "../../yukina.config";
+import { i18n } from "../locales/translation";
+import I18nKeys from "../locales/keys";
+import { GetCategories, GetTags } from "../utils/content";
+import ImageWrapper from "./misc/ImageWrapper.astro";
+
+const categories = await GetCategories();
+const tags = await GetTags();
+
+const categoryKeys = [...categories.keys()];
+const tagKeys = [...tags.keys()];
+---
+
+<div class="mx-3 space-y-4">
+  <!-- Owner info card -->
+  <div class="rounded-3xl bg-(--card-color) transition-all lg:hidden">
+    <div class="flex flex-row md:flex-col md:pt-4">
+      <a href="/about" class="relative h-40 w-40 md:hidden">
+        <ImageWrapper
+          class="lozad absolute top-0 left-0 h-40 rounded-l-3xl"
+          src={YukinaConfig.avatarUrl}
+          alt="Avatar"
+        />
+        <div
+          class="absolute top-0 right-0 h-40 w-20 bg-linear-to-l from-(--card-color)"
+        >
+        </div>
+      </a>
+      <a
+        class="mx-auto hidden h-40 w-40 cursor-pointer rounded-3xl transition-all hover:brightness-75 md:block"
+      >
+        <ImageWrapper
+          class="lozad h-40 rounded-3xl"
+          src={YukinaConfig.avatarUrl}
+          alt="Avatar"
+        />
+      </a>
+      <div class="flex grow flex-col justify-center space-y-4 p-4">
+        <div class="flex flex-col items-center">
+          <a
+            href="/about"
+            class="line-clamp-1 text-xl font-semibold text-(--text-color)"
+          >
+            {YukinaConfig.username}
+          </a>
+          <span class="mt-1 mb-2 h-1 w-8 rounded-full bg-(--primary-color)"
+          ></span>
+          <p class="line-clamp-1 text-(--text-color-lighten)">
+            {YukinaConfig.sign}
+          </p>
+        </div>
+        <ul class="flex flex-row items-center justify-center space-x-6">
+          {
+            YukinaConfig.socialLinks.map((item) => (
+              <li>
+                <a href={item.link} class="text-(--primary-color)">
+                  <Icon name={item.icon} size={24} />
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Category card -->
+  <div class="rounded-3xl bg-(--card-color) p-4 transition-all lg:hidden">
+    <div class="mb-2 flex flex-row items-center space-x-2 pl-1.5">
+      <span class="h-6 w-1 rounded-full bg-(--primary-color)"></span>
+      <span class="text-xl font-semibold text-(--text-color)">
+        {i18n(I18nKeys.side_bar_categories)}
+      </span>
+    </div>
+    <div class="relative grid grid-cols-2 gap-1 md:grid-cols-3">
+      {
+        categoryKeys
+          .slice(0, YukinaConfig.maxFooterCategoryChip)
+          .map((category) => (
+            <a
+              href={`/categories/${category}`}
+              class="category flex flex-row items-center justify-between rounded-lg px-2 py-1.5 transition-all hover:bg-(--primary-color-lighten)"
+            >
+              <p class="line-clamp-1 text-(--text-color) transition-all">
+                {categories.get(category)!.name}
+              </p>
+              <span class="rounded-md bg-(--primary-color-lighten) px-2.5 py-0.5 text-(--primary-color)">
+                {categories.get(category)!.posts.length}
+              </span>
+            </a>
+          ))
+      }
+      {
+        categoryKeys.length > YukinaConfig.maxFooterCategoryChip && (
+          <>
+            <a
+              href={`/categories/${categoryKeys[YukinaConfig.maxFooterCategoryChip]}`}
+              class="category col-span-2 flex flex-row items-center justify-between rounded-lg px-2 py-1.5 transition-all hover:bg-(--primary-color-lighten) md:col-span-3"
+            >
+              <p class="line-clamp-1 text-(--text-color) transition-all">
+                {
+                  categories.get(
+                    categoryKeys[YukinaConfig.maxFooterCategoryChip],
+                  )!.name
+                }
+              </p>
+              <span class="rounded-md bg-(--primary-color-lighten) px-2.5 py-0.5 text-(--primary-color)">
+                {
+                  categories.get(
+                    categoryKeys[YukinaConfig.maxFooterCategoryChip],
+                  )!.posts.length
+                }
+              </span>
+            </a>
+            <div class="absolute bottom-0 flex h-11 w-full flex-row items-center justify-center bg-linear-to-t from-(--card-color) from-25% to-transparent backdrop-blur-sm">
+              <a
+                href="/categories/"
+                class="flex flex-row items-center space-x-1 text-(--primary-color) transition-colors hover:brightness-75 dark:hover:brightness-125"
+              >
+                <span>{i18n(I18nKeys.side_bar_view_more)}</span>
+                <Icon name="mingcute:arrow-right-line" />
+              </a>
+            </div>
+          </>
+        )
+      }
+    </div>
+  </div>
+
+  <!-- Tag card -->
+  <div class="rounded-3xl bg-(--card-color) p-4 transition-all lg:hidden">
+    <div class="mb-2 flex flex-row items-center space-x-2 pl-1.5">
+      <span class="h-6 w-1 rounded-full bg-(--primary-color)"></span>
+      <span class="text-xl font-semibold text-(--text-color)">
+        {i18n(I18nKeys.side_bar_tags)}
+      </span>
+    </div>
+    <div class="relative flex flex-row flex-wrap">
+      {
+        tagKeys.slice(0, YukinaConfig.maxFooterTagChip + 1).map((tag) => (
+          <a
+            href={`/tags/${tag}`}
+            class="tag m-1 rounded-md bg-(--primary-color-lighten) px-2 py-1 transition-all hover:brightness-95"
+          >
+            <p class="text-sm text-(--primary-color)">{tags.get(tag)!.name}</p>
+          </a>
+        ))
+      }
+      {
+        tagKeys.length >= YukinaConfig.maxFooterCategoryChip + 1 && (
+          <div class="absolute bottom-0 flex h-10 w-full flex-row items-center justify-center bg-linear-to-t from-(--card-color) from-25% to-transparent backdrop-blur-sm">
+            <a
+              href="/tags/"
+              class="flex flex-row items-center space-x-1 text-(--primary-color) transition-colors hover:brightness-75 dark:hover:brightness-125"
+            >
+              <span>{i18n(I18nKeys.side_bar_view_more)}</span>
+              <Icon name="mingcute:arrow-right-line" />
+            </a>
+          </div>
+        )
+      }
+    </div>
+  </div>
+
+  <!-- Site footer -->
+  <footer>
+    <div
+      class="divide-y divide-dashed divide-black/25 py-4 lg:pt-0 dark:divide-white/25"
+    >
+      <div></div>
+      <div></div>
+    </div>
+    <div
+      class="flex w-full flex-col items-center text-sm text-(--text-color-lighten)"
+    >
+      <p>
+        © {new Date().getFullYear()}
+        {YukinaConfig.username} All Rights Reserved.
+      </p>
+      <p>
+        Powered By <a class="link" href="https://astro.build/">Astro</a>,
+        Original Theme by <a
+          class="link"
+          href="https://github.com/WhitePaper233/yukina">Yukina</a
+        >, Modified by <a class="link" href="https://github.com/Mai-Ooizumi"
+          >Mai Ooizumi</a
+        >.
+      </p>
+      <p>Build By 🖥️ & ❤️</p>
+      <p>
+        <a class="link" href={new URL("sitemap-index.xml", YukinaConfig.site)}
+          >SiteMap</a
+        > / <a class="link" href="/rss.xml">RSS</a>
+      </p>
+    </div>
+  </footer>
+</div>
+
+<style>
+  @reference "tailwindcss";
+  .link {
+    @apply text-(--primary-color) transition-all hover:brightness-110;
+  }
+
+  .category {
+    font-family: var(--primary-font);
+  }
+
+  .category:hover > p {
+    @apply pl-2 text-[var(--primary-color)];
+  }
+</style>

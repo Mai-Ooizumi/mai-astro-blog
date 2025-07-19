@@ -1,0 +1,116 @@
+---
+import Main from "../layouts/MainLayout.astro";
+import Markdown from "../components/Markdown.astro";
+import CopyRight from "../components/misc/CopyRight.astro";
+import PostMeta from "../components/PostMeta.astro";
+
+interface Props {
+  title?: string;
+  subTitle?: string;
+  bannerImage?: string;
+  published: Date;
+  updated?: Date;
+  tags?: string[];
+  category?: string | null;
+  license?: {
+    name: string;
+    url?: string;
+  };
+  author?: string;
+  sourceLink?: string;
+  readingMetadata?: { time: number; wordCount: number };
+}
+
+const {
+  title,
+  subTitle,
+  bannerImage,
+  published,
+  updated,
+  tags = [],
+  category,
+  license,
+  author,
+  sourceLink,
+  readingMetadata,
+} = Astro.props;
+---
+
+<Main title={title} subTitle={subTitle} bannerImage={bannerImage}>
+  <!-- <Fragment set:html={tocHTMLString} /> -->
+  <div class="article-wrapper">
+    <div class="article">
+      <div class="title-container">
+        <h1 class="post-title">{title}</h1>
+        <div class="mt-4 ml-2">
+          <PostMeta
+            published={published}
+            updated={updated}
+            tags={tags}
+            category={category ?? undefined}
+            readingMetadata={readingMetadata}
+          />
+        </div>
+
+        {subTitle && <p class="subtitle mt-4 ml-2">{subTitle}</p>}
+
+        <div class="divider"></div>
+      </div>
+
+      <Markdown>
+        <slot />
+      </Markdown>
+      {
+        published && title && (
+          <CopyRight
+            title={title}
+            published={published}
+            license={license}
+            author={author}
+            sourceLink={sourceLink}
+          />
+        )
+      }
+    </div>
+  </div>
+</Main>
+
+<style>
+  @reference "tailwindcss";
+  .article-wrapper {
+    @apply mx-3 rounded-2xl bg-(--card-color) px-5 py-6 lg:mx-0 lg:px-10 lg:py-9;
+  }
+  .article {
+    @apply flex flex-col;
+    font-size: var(--primary-font);
+  }
+  .post-title {
+    @apply relative mb-0 text-4xl font-bold;
+    color: var(--text-color);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-left: 1rem;
+  }
+
+  .post-title::before {
+    position: absolute;
+    display: block;
+    content: " ";
+    background-color: var(--primary-color);
+    top: 2.5px;
+    bottom: 3px;
+    width: 0.3rem;
+    border-radius: 4px;
+    left: 0;
+  }
+
+  .subtitle {
+    @apply text-lg;
+    color: var(--text-color-lighten);
+  }
+  .divider {
+    @apply my-6 h-px w-full;
+    background-color: var(--primary-color-lighten);
+  }
+</style>

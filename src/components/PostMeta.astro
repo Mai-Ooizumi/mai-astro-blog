@@ -1,0 +1,150 @@
+---
+import { IdToSlug } from "../utils/hash";
+import PostCardInfoIcon from "./widgets/PostCardInfoIcon.astro";
+import { formatDate } from "../utils/date";
+import YukinaConfig from "../../yukina.config";
+import { i18n } from "../locales/translation";
+import I18nKeys from "../locales/keys";
+
+export interface Props {
+  published: Date;
+  updated?: Date;
+  category?: string;
+  tags?: string[];
+  readingMetadata?: { time: number; wordCount: number };
+  hideTagsForMobile?: boolean;
+  hideUpdateDate?: boolean;
+}
+
+const {
+  published,
+  updated,
+  category,
+  tags,
+  readingMetadata,
+  hideTagsForMobile = false,
+  hideUpdateDate = false,
+} = Astro.props;
+
+const { time = 0, wordCount = 0 } = readingMetadata ?? {};
+---
+
+<div class="post-meta">
+  <ul class="flex flex-row space-x-4">
+    <!-- 发布日期 -->
+    <li class="data space-x-2">
+      <PostCardInfoIcon name="cuida:calendar-outline" />
+      <span class="select-none">
+        {formatDate(published, YukinaConfig.locale)}
+      </span>
+    </li>
+
+    <!-- 更新日期 -->
+    {
+      !hideUpdateDate &&
+        updated &&
+        updated.getDate() !== published.getDate() && (
+          <li class="data space-x-2">
+            <PostCardInfoIcon name="cuida:refresh-outline" />
+            <span class="select-none">
+              {formatDate(updated, YukinaConfig.locale)}
+            </span>
+          </li>
+        )
+    }
+
+    <!-- 分类 -->
+    {
+      category && (
+        <li class="data space-x-1.5">
+          <PostCardInfoIcon name="dashicons:category" />
+          <a
+            class="post-meta-link rounded-md px-1.5 py-0.5 transition-all select-none"
+            href={`/categories/${IdToSlug(category)}`}
+          >
+            {category}
+          </a>
+        </li>
+      )
+    }
+
+    <!-- 标签 -->
+    {
+      tags && tags.length > 0 && (
+        <li
+          class:list={[
+            "items-center overflow-clip",
+            {
+              "hidden md:block": hideTagsForMobile,
+              block: !hideTagsForMobile,
+            },
+          ]}
+        >
+          <div class="data space-x-2">
+            <PostCardInfoIcon name="mdi:tag-outline" />
+            <ul class="flex flex-row items-center space-x-1">
+              {tags.slice(0, 3).map((tag, index) => (
+                <li class="flex flex-row items-center select-none">
+                  {index > 0 && <span class="pr-1">/</span>}
+                  <a
+                    class="post-meta-link rounded-md px-1.5 py-0.5 transition-all"
+                    href={`/tags/${IdToSlug(tag)}`}
+                  >
+                    {tag}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </li>
+      )
+    }
+
+    <!-- 阅读时间和字数统计 -->
+    {
+      readingMetadata && (wordCount > 0 || time > 0) && (
+        <>
+          <li class="data space-x-2">
+            <PostCardInfoIcon name="mdi:text" />
+            <span class="select-none">
+              {wordCount}
+              {i18n(I18nKeys.post_card_words)}
+            </span>
+          </li>
+          <li class="data space-x-2">
+            <PostCardInfoIcon name="mdi:clock-outline" />
+            <span class="select-none">
+              {time}
+              {i18n(I18nKeys.post_card_minutes)}
+            </span>
+          </li>
+        </>
+      )
+    }
+  </ul>
+</div>
+
+<style>
+  @reference "tailwindcss";
+  .post-meta {
+    @apply flex flex-wrap text-sm;
+  }
+
+  .data {
+    font-family: var(--primary-font);
+    @apply flex flex-row items-center;
+  }
+
+  .data > span {
+    @apply inline-block self-center truncate align-middle text-[var(--text-color-lighten)];
+    font-family: var(--primary-font);
+  }
+
+  .post-meta-link {
+    color: var(--text-color-lighten) !important;
+  }
+  .post-meta-link:hover {
+    color: var(--primary-color) !important;
+    background-color: var(--primary-color-lighten) !important;
+  }
+</style>

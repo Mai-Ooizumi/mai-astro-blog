@@ -1,0 +1,83 @@
+---
+title: 阿里云 Docker 镜像源导致 RustDesk 服务异常
+published: 2025-07-16
+description: 记录一次由于阿里云 Docker 镜像源缓存过期导致 RustDesk 服务端无法连接的问题排查和解决过程。
+tags: [Docker, RustDesk, 镜像源, 故障排查, 阿里云]
+category: 运维
+draft: false
+---
+
+## 起因
+
+前几天在使用 ssh 时误操作把一台阿里云服务器给重启了，重启后一开始也没觉得有什么问题，毕竟服务器重启后一般都能正常使用。
+
+但后面两天使用到 RustDesk 的时候，发现无法连接到自己建立的服务器，于是 ssh 登录到服务器使用了 `docker ps` 命令查看了正在运行的容器，发现 RustDesk 的服务端 `rustdesk/rustdesk-server` 是正常运行的。
+
+这时候我觉得有点奇怪，因为服务器是在国内的而我也是从国内连接的，理论上不会存在被 GFW 屏蔽的情况。
+
+## 排查
+
+1. **重启了 RustDesk 的服务端容器**：第一时间想到的是重启下服务端，由于我架设服务器时使用的是 Docker ，所以直接使用 `docker compose down` 命令关闭服务端容器，然后再使用 `docker compose up -d` 命令重新启动。 **这一步操作并没有解决问题**，连接依然失败。
+
+2. **查看了 RustDesk 的镜像版本**：使用 `docker images` 命令查看了当前服务器上 RustDesk 的镜像版本，发现是最新的 `rustdesk/rustdesk-server:latest` 但 `CREATED` 时间是 **4 years ago** ，这让我有点疑惑，因为我记得之前是有更新过的。于是我决定把镜像删除掉，然后重新拉取最新的镜像。
+   这里使用了以下命令：
+
+```bash
+docker rmi rustdesk/rustdesk-server # 删除当前的 RustDesk 镜像
+docker pull rustdesk/rustdesk-server # 拉取最新的 RustDesk 镜像
+```
+
+由于 `docker pull` 命令会自动拉取最新的镜像，所以不需要指定 `latest` 。 再次使用 `docker compose up -d` 启动服务端容器发现**连接依然失败**。
+
+这时我试图用 `docker image inspect rustdesk/rustdesk-server:latest | grep -i version` 命令查看镜像的版本信息，但发现输出为空，这让我更加怀疑镜像有问题。
+
+3. **尝试使用其他版本的镜像**：由于怀疑是镜像的问题，我决定尝试使用其他版本的 RustDesk 镜像。于是我使用了以下命令：
+
+```bash
+docker pull rustdesk/rustdesk-server:1.1.14 # 拉取 Docker Hub 上最新的 1.1.14 版本
+docker tag 9227b43758be rustdesk/rustdesk-server:latest # 将拉取的镜像打上 latest 标签
+docker compose up -d # 启动服务端容器
+```
+
+这次使用了 `1.1.14` 版本的镜像，并将其打上了 `latest` 标签。再次尝试连接 RustDesk 的服务端，发现**连接成功了**。
+
+而且在 Docker Hub 上查看 `rustdesk/rustdesk-server` 镜像版本信息的时候，发现 `latest` 上次更新是六个月之前而不是我拉取到的 4 年前。
+
+4. **检查 Docker 日志**：为了找到问题的根源，我用回出问题的 `latest` 然后使用了 `docker logs hbbs` 和 `docker logs hbbr` 命令查看了 RustDesk 的服务端容器日志。发现日志里全是以下错误信息：
+
+```
+Registered email required (-m option). Please pay and register on https://rustdesk.com/server.
+```
+
+于是使用这个信息在 Google 上搜索了一下，发现早在 2022 年就有人碰到了这个问题并且在 GitHub 上提交了 [issue](https://github.com/rustdesk/rustdesk-server/issues/133) 。在下面一个 Contributor 的回复中提到：
+
+> looks like you're using an old image.
+
+> you can try an update:
+
+> `docker-compose pull && docker-compose up -d`
+
+## 解决方案
+
+这时我想到了阿里云服务器的 Docker 镜像可能是有问题的，而 Docker Hub 在国内直连又比较慢而且容易被 GFW 干扰，所以我决定使用自己之前[自己架设的 Docker 代理](https://github.com/Mai-Ooizumi/cloudflare-docker-proxy)
+
+```bash
+vim /etc/docker/daemon.json
+```
+
+在文件中添加以下内容：
+
+```json title="/etc/docker/daemon.json"
+{
+  "registry-mirrors": [
+    "https://your-proxy-url/",
+    "https://example.mirror.aliyuncs.com" // 把阿里云的镜像源放在后面 或者直接删掉
+  ]
+}
+```
+
+然后重启拉取最新的 RustDesk 镜像，发现这时候的镜像版本是最新的了，问题也就解决了。
+
+## 总结
+
+猜测阿里云镜像源的 RustDesk 镜像在不知道什么情况下变为了一个很旧的版本，导致无法连接。通过使用自己的 Docker 代理拉取最新的镜像解决了问题。
