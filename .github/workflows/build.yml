@@ -17,7 +17,7 @@ jobs:
   check:
     strategy:
       matrix:
-        node: [ lts, latest ]
+        node: [ lts/*, latest ]
     runs-on: ubuntu-latest
     name: Astro Check for Node.js ${{ matrix.node }}
     steps:
@@ -28,9 +28,15 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node }}
+          check-latest: true
 
       - name: Setup PNPM
         uses: pnpm/action-setup@v4
+        with:
+          run_install: false
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
 
       - name: Run Astro Check
         run: pnpm astro check
@@ -38,7 +44,7 @@ jobs:
   build:
     strategy:
       matrix:
-        node: [ lts, latest ]
+        node: [ lts/*, latest ]
     runs-on: ubuntu-latest
     name: Astro Build for Node.js ${{ matrix.node }} # Corrected job name
     steps:
@@ -49,9 +55,15 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node }}
+          check-latest: true
 
       - name: Setup PNPM
         uses: pnpm/action-setup@v4
+        with:
+          run_install: false
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
 
       - name: Run Astro Build
         run: pnpm astro build

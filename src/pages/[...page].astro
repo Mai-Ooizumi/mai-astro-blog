@@ -35,7 +35,9 @@ const { page } = Astro.props;
               tags={entry.data.tags}
               description={entry.data.description}
               image={entry.data.cover}
-              readingMetadata={entry.data.readingMetadata}
+              readingMetadata={
+                entry.data.readingMetadata || { time: 0, wordCount: 0 }
+              }
             />
           </div>
         ))
