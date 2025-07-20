@@ -51,7 +51,7 @@ export async function GetSortedPosts() {
 
   // MDX readingTime support
   for (const post of sorted) {
-    const stats = readingTime(post.body);
+    const stats = readingTime(post.body || '');
     (post.data as any).readingMetadata = {
       time: Math.ceil(stats.minutes),
       wordCount: stats.words,
@@ -183,3 +183,4 @@ export async function GetCategories() {
 
   return categories;
 }
+
