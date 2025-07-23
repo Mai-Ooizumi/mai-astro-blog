@@ -1,0 +1,111 @@
+---
+title: Discord Bot 开发与部署
+published: 2025-07-24
+description: 记录自己的 Discord Bot 开发和部署。
+tags: [Discord, Bot, TypeScript, 部署, 开发]
+category: 开发笔记
+draft: false
+---
+
+# 前言
+
+作为一个 Discord 用户，我一直想要开发一个属于自己的 Discord Bot。虽然很早就在官网注册了一个 Bot，但由于各种原因一直搁置。直到最近完成了博客重建，突然萌生了要把这个计划付诸实践的想法。
+
+本文将完整记录我从零开始开发 Discord Bot 的全过程，希望能为有类似需求的开发者提供参考。
+
+# 技术选型
+
+在 Discord Bot 开发领域，主要有两个广受欢迎的框架：
+- [Discord.js](https://discord.js.org/)：功能强大的 JavaScript/TypeScript 开发框架
+- [Discord.py](https://discordpy.readthedocs.io/en/stable/)：Python 生态下的主流选择
+
+经过调研，我最终选择了 Discord.js + TypeScript 的技术组合。主要考虑因素有：
+1. Discord.py 曾经历过暂停维护的阶段，而 Discord.js 一直保持活跃更新
+2. TypeScript 提供了强类型支持，可以降低开发过程中的错误率
+3. 发现了 `discordx` 这个优秀的框架，它在 Discord.js 的基础上提供了更好的 TypeScript 支持和更多实用功能
+
+# 项目创建
+
+## 1. 注册 Discord Bot
+
+首先需要在 Discord 开发者平台创建一个应用并注册 Bot。访问 [Discord Developer Portal](https://discord.com/developers/applications)，登录后按照指引完成创建。这个过程很直观，官方文档也有详细说明。
+
+## 2. 环境准备
+
+开发环境配置：
+- Node.js：选用最新的 LTS 版本，确保稳定性
+- 包管理器：使用 pnpm，相比 npm 具有更好的性能和磁盘空间利用率
+
+## 3. 项目初始化
+
+感谢 [discordx](https://discordx.js.org/) 提供的脚手架工具，只需一行命令即可创建项目：
+
+```bash
+npx create-discordx
+```
+
+这个命令会引导我们完成：
+- 项目名称设置
+- 包管理器选择
+- 项目模板选择
+
+我选择了 [hot-module-reload](https://github.com/discordx-ts/templates/tree/main/3-hot-module-reload) 模板，它提供了：
+- 热重载功能（开发中）
+- 模块化的项目结构
+- TypeScript 支持
+- 完整的开发环境配置
+
+# 项目开发
+
+项目开发主要围绕两个核心功能展开：
+
+1. 服务器管理功能
+   - 实现身份组自动分配
+   - 基础的管理命令
+   - 权限控制系统
+
+2. 交互功能
+   - 集成语言模型 API
+   - 实现智能对话功能
+   - 自定义命令处理
+
+目前的开发只进行了一部分，后续会逐步完善。
+
+# 部署
+
+为了确保 Bot 的稳定运行，我选择将其部署在 VPS 上。部署过程可以分为以下几个步骤：
+
+## 1. 环境配置
+
+在 VPS 上安装必要的环境：
+```bash
+# 安装 Node.js
+curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
+sudo apt-get install -y nodejs
+
+# 使用 corepack 安装 pnpm
+sudo corepack enable pnpm
+```
+
+## 2. 项目部署
+
+将项目代码部署到服务器：
+1. 使用 git clone 或 scp 传输代码
+2. 安装依赖：`pnpm install`
+3. 配置环境变量（建议使用 .env 文件）
+
+## 3. 进程管理
+
+使用 PM2 实现进程管理和开机自启：
+
+```bash
+# 安装 PM2
+pnpm install -g pm2
+
+# 启动项目
+pm2 start {path-to-main.js} --name "discord-bot"
+
+# 配置开机自启
+pm2 startup
+pm2 save
+```
