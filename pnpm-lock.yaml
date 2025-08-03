@@ -55,8 +55,8 @@ importers:
         version: 5.8.3
     devDependencies:
       '@iconify-json/cuida':
-        specifier: ^1.2.4
-        version: 1.2.4
+        specifier: ^1.2.5
+        version: 1.2.5
       '@iconify-json/dashicons':
         specifier: ^1.2.1
         version: 1.2.1
@@ -961,8 +961,8 @@ packages:
   '@fontsource/noto-sans-sc@5.2.6':
     resolution: {integrity: sha512-hk0xVQ+mL/W0rXDhBhud2U5te/slsQKcaU+3Ni6ZxeFP1jJmcNmxHEZOG5DjLBOi0L//0R5Nwvn6ebTiZrwVZw==}
 
-  '@iconify-json/cuida@1.2.4':
-    resolution: {integrity: sha512-YcT7dmkfurxOhDVDcZzxwxL8ptag8Y7/NkAMX+f5biyut8dWIStWK9TuAtevqskkpJZKC9Gj2nU6/GN/EaYUKw==}
+  '@iconify-json/cuida@1.2.5':
+    resolution: {integrity: sha512-+LCnHk53WIw9uTcskDT5Kpjwj8wEEI1YLNeX/yLdksQAt8VOOcIeZnRMmW0drnu8GK8SFw6IXu7CZdx7Kqnwqw==}
 
   '@iconify-json/dashicons@1.2.1':
     resolution: {integrity: sha512-uCuVx/QAbBOLZkjNgpwirV9CLHNcKZYWeYTZBGUZzFEtIpuW/hCC1yadmvAe8aqx5Q5mt0oie5cSd5znXgUd0w==}
@@ -6097,7 +6097,7 @@ snapshots:
 
   '@fontsource/noto-sans-sc@5.2.6': {}
 
-  '@iconify-json/cuida@1.2.4':
+  '@iconify-json/cuida@1.2.5':
     dependencies:
       '@iconify/types': 2.0.0
 
