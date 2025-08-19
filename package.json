@@ -20,7 +20,7 @@
     "astro-icon": "^1.1.5",
     "astro-pagefind": "^1.8.3",
     "lozad": "^1.16.0",
-    "overlayscrollbars": "^2.11.4",
+    "overlayscrollbars": "^2.11.5",
     "rehype-components": "^0.3.0",
     "svelte": "^5.38.2",
     "typescript": "^5.9.2"
