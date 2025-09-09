@@ -18,7 +18,7 @@
     "@swup/astro": "^1.7.0",
     "astro": "^5.13.5",
     "astro-icon": "^1.1.5",
-    "astro-pagefind": "^1.8.4",
+    "astro-pagefind": "^1.8.5",
     "lozad": "^1.16.0",
     "overlayscrollbars": "^2.12.0",
     "rehype-components": "^0.3.0",
