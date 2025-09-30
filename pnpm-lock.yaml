@@ -73,8 +73,8 @@ importers:
         specifier: ^1.2.5
         version: 1.2.5
       '@iconify-json/ooui':
-        specifier: ^1.2.11
-        version: 1.2.11
+        specifier: ^1.2.12
+        version: 1.2.12
       '@iconify/svelte':
         specifier: ^5.0.1
         version: 5.0.1(svelte@5.39.6)
@@ -979,8 +979,8 @@ packages:
   '@iconify-json/mingcute@1.2.5':
     resolution: {integrity: sha512-LKlW4wahStprbfJcpzUnuayObOVAuztgYSy3v5oTke6cBJNfqEeE/mtMhHgpoSgGJvo5hhde2Q0+DoxKEldY2A==}
 
-  '@iconify-json/ooui@1.2.11':
-    resolution: {integrity: sha512-ft6kN1tpZfr6ha0YVVsQX24oYDxik4HHaUDQByF17iOa/fga5t7h8oMH1ZK9XRXYunzX2KVbHkz0pkrDOJ0utQ==}
+  '@iconify-json/ooui@1.2.12':
+    resolution: {integrity: sha512-EVIkhvcDT9i3kVJGva23wu8rhrWi2AHXqiARoZ+P8F09Vbnt861X2SWeYELoGAgqD1tbbT13CnrJk3Lj1MUl+A==}
 
   '@iconify/svelte@5.0.1':
     resolution: {integrity: sha512-nR1ApafyeRDcsx6ytd+0mzaY0ASYfG5YBW9dN8rUWxwi792/HX401qAZEkXSjT0iHm2Dgua+PwXDs/3ttJhkqQ==}
@@ -6020,7 +6020,7 @@ snapshots:
     dependencies:
       '@iconify/types': 2.0.0
 
-  '@iconify-json/ooui@1.2.11':
+  '@iconify-json/ooui@1.2.12':
     dependencies:
       '@iconify/types': 2.0.0
 
