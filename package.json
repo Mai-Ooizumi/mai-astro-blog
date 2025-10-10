@@ -34,7 +34,7 @@
     "@iconify-json/mdi": "^1.2.3",
     "@iconify-json/mingcute": "^1.2.5",
     "@iconify-json/ooui": "^1.2.12",
-    "@iconify/svelte": "^5.0.1",
+    "@iconify/svelte": "^5.0.2",
     "@tailwindcss/typography": "^0.5.18",
     "@tailwindcss/vite": "^4.1.14",
     "@types/crypto-js": "^4.2.2",
