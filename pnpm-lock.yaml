@@ -76,8 +76,8 @@ importers:
         specifier: ^1.2.12
         version: 1.2.12
       '@iconify/svelte':
-        specifier: ^5.0.2
-        version: 5.0.2(svelte@5.43.2)
+        specifier: ^5.1.0
+        version: 5.1.0(svelte@5.43.2)
       '@tailwindcss/typography':
         specifier: ^0.5.19
         version: 0.5.19(tailwindcss@4.1.16)
@@ -971,8 +971,8 @@ packages:
   '@iconify-json/ooui@1.2.12':
     resolution: {integrity: sha512-EVIkhvcDT9i3kVJGva23wu8rhrWi2AHXqiARoZ+P8F09Vbnt861X2SWeYELoGAgqD1tbbT13CnrJk3Lj1MUl+A==}
 
-  '@iconify/svelte@5.0.2':
-    resolution: {integrity: sha512-1iWUT+1veS/QOAzKDG0NPgBtJYGoJqEPwF97voTm8jw6PQ6yU0hL73lEwFoTGMrZmatLvh9cjRBmeSHHaltmrg==}
+  '@iconify/svelte@5.1.0':
+    resolution: {integrity: sha512-I14nSqo0pNXO5OKsT61ZO3XIPF4yRHA2ErgPsaZ1sPJdKXn80o7o8jOe1xpWphbb9FihdX6by9zlKKBss61mFw==}
     peerDependencies:
       svelte: '>4.0.0'
 
@@ -5919,7 +5919,7 @@ snapshots:
     dependencies:
       '@iconify/types': 2.0.0
 
-  '@iconify/svelte@5.0.2(svelte@5.43.2)':
+  '@iconify/svelte@5.1.0(svelte@5.43.2)':
     dependencies:
       '@iconify/types': 2.0.0
       svelte: 5.43.2
