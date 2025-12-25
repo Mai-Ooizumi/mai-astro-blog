@@ -32,7 +32,7 @@
     "@iconify-json/heroicons": "^1.2.3",
     "@iconify-json/line-md": "^1.2.11",
     "@iconify-json/mdi": "^1.2.3",
-    "@iconify-json/mingcute": "^1.2.5",
+    "@iconify-json/mingcute": "^1.2.6",
     "@iconify-json/ooui": "^1.2.13",
     "@iconify/svelte": "^5.1.0",
     "@tailwindcss/typography": "^0.5.19",
