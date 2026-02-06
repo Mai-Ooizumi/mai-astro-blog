@@ -36,7 +36,7 @@
     "@iconify-json/ooui": "^1.2.13",
     "@iconify/svelte": "^5.1.0",
     "@tailwindcss/typography": "^0.5.19",
-    "@tailwindcss/vite": "^4.1.17",
+    "@tailwindcss/vite": "^4.1.18",
     "@types/crypto-js": "^4.2.2",
     "@types/lozad": "^1.16.4",
     "crypto-js": "^4.2.0",
