@@ -1,5 +1,6 @@
 import { glob } from "astro/loaders";
-import { defineCollection, z } from "astro:content";
+import { defineCollection } from "astro:content";
+import { z } from "astro/zod";
 
 const posts = defineCollection({
   loader: glob({
@@ -34,4 +35,5 @@ const specs = defineCollection({
 });
 
 export const collections = { posts, specs };
+
 
