@@ -14,7 +14,7 @@
     "@astrojs/rss": "^4.0.18",
     "@astrojs/sitemap": "^3.7.3",
     "@astrojs/svelte": "^9.0.0",
-    "@fontsource/noto-sans-sc": "^5.2.9",
+    "@fontsource/noto-sans-sc": "^5.3.0",
     "@swup/astro": "^1.8.0",
     "astro": "^7.0.0",
     "astro-icon": "^1.1.5",
