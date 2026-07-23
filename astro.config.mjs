@@ -10,6 +10,7 @@ import rehypeKatex from "rehype-katex";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import remarkMath from "remark-math";
 import { remarkReadingTime } from "./src/plugins/remark-reading-time.mjs";
+import { unified } from '@astrojs/markdown-remark';
 
 import YukinaConfig from "./yukina.config";
 
@@ -36,20 +37,22 @@ export default defineConfig({
   }), sitemap(), pagefind(), mdx()],
 
   markdown: {
+    processor: unified({
+      remarkPlugins: [remarkReadingTime, remarkMath],
+      rehypePlugins: [
+        rehypeSlug,
+        rehypeKatex,
+        [
+          rehypeAutolinkHeadings,
+          {
+            behavior: "prepend",
+          },
+        ],
+      ],
+    }),
     shikiConfig: {
       theme: "catppuccin-mocha",
     },
-    remarkPlugins: [remarkReadingTime, remarkMath],
-    rehypePlugins: [
-      rehypeSlug,
-      rehypeKatex,
-      [
-        rehypeAutolinkHeadings,
-        {
-          behavior: "prepend",
-        },
-      ],
-    ],
   },
 
   image: {
