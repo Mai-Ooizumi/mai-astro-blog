@@ -76,8 +76,8 @@ importers:
         specifier: ^1.2.7
         version: 1.2.7
       '@iconify-json/ooui':
-        specifier: ^1.2.20
-        version: 1.2.20
+        specifier: ^1.2.21
+        version: 1.2.21
       '@iconify/svelte':
         specifier: ^5.2.2
         version: 5.2.2(svelte@5.56.7)
@@ -1120,8 +1120,8 @@ packages:
   '@iconify-json/mingcute@1.2.7':
     resolution: {integrity: sha512-bp4z6F53KAQp99aSL7qPCHL7HWUNGMNKIhfo/dx9pwVHiad/WusUbTOFXEZfpA44syJPzSOxa3O6Pwiq7qZz1g==}
 
-  '@iconify-json/ooui@1.2.20':
-    resolution: {integrity: sha512-G1vhhOloYgc3NiQYuGHV98hlormM8Bw0D9n3D9QsA3KogbHU/tL4SayYAWAE8aL9G7TrMJJrQgnJeUH9G39xNw==}
+  '@iconify-json/ooui@1.2.21':
+    resolution: {integrity: sha512-VIOxVs/c8zW31Opb0H/gPVQ6iocT25DDPBapEYEQ6q1z6rxKw9gSCCnaDyNRGtIMZWFMQ+uNlaPMT2KkIPYS6w==}
 
   '@iconify/svelte@5.2.2':
     resolution: {integrity: sha512-XMXxD3nzH7yB68C3K4sNwzrJ1TBscODR0ZqCeNf0KGuEMCTSuCo0jHNDZ0o0iRXTylO41NSz/DWam/4atLG1yw==}
@@ -2382,6 +2382,7 @@ packages:
 
   crypto-js@4.2.0:
     resolution: {integrity: sha512-KALDyEYgpY+Rlob/iriUtjV6d5Eq+Y191A5g4UqLAi8CyGP9N1+FdVbkc1SxKc2r4YAYqG8JzO2KGL+AizD70Q==}
+    deprecated: Active development of CryptoJS has been discontinued. This library is no longer maintained.
 
   css-declaration-sorter@6.4.1:
     resolution: {integrity: sha512-rtdthzxKuyq6IzqX6jEcIzQF/YqccluefyCYheovBOLhFT/drQA9zj/UbRAa9J7C0o6EG6u3E6g+vKkay7/k3g==}
@@ -6372,7 +6373,7 @@ snapshots:
     dependencies:
       '@iconify/types': 2.0.0
 
-  '@iconify-json/ooui@1.2.20':
+  '@iconify-json/ooui@1.2.21':
     dependencies:
       '@iconify/types': 2.0.0
 
