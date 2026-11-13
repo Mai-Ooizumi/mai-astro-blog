@@ -1,0 +1,5 @@
+upstream: https://github.com/cosZone/astro-koharu
+tag: v7.7.5
+commit: dc6e51b4ee04d6c26d4aae37b5c7940e30d2f572
+mdx_integration: "@astrojs/mdx@7.0.5"
+synced_at: 2026-11-13
