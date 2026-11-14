@@ -5,6 +5,10 @@ updates:
     schedule:
       interval: "weekly"
     open-pull-requests-limit: 10
+    ignore:
+      # Hold TypeScript 7 until @astrojs/check supports it and tsconfig.json drops baseUrl.
+      - dependency-name: "typescript"
+        versions: [">= 7.0.0"]
     groups:
       astro:
         patterns:
@@ -13,12 +17,44 @@ updates:
       biome:
         patterns:
           - "@biomejs/*"
+        update-types:
+          - "minor"
+          - "patch"
       shiki-unified:
         patterns:
           - "remark-*"
           - "rehype-*"
           - "unified"
           - "shiki"
+        update-types:
+          - "minor"
+          - "patch"
+      zod:
+        patterns:
+          - "zod"
+          - "@hookform/resolvers"
+        update-types:
+          - "major"
+      nanostores:
+        patterns:
+          - "nanostores"
+          - "@nanostores/*"
+        update-types:
+          - "major"
+      minor-and-patch:
+        patterns:
+          - "*"
+        exclude-patterns:
+          - "astro"
+          - "@astrojs/*"
+          - "@biomejs/*"
+          - "remark-*"
+          - "rehype-*"
+          - "unified"
+          - "shiki"
+        update-types:
+          - "minor"
+          - "patch"
 
   - package-ecosystem: "github-actions"
     directory: "/.github/workflows"
