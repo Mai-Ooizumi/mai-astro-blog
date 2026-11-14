@@ -1,37 +1,30 @@
 ---
-import PostArchiveLayout from "../../layouts/PostArchiveLayout.astro";
-import I18nKeys from "../../locales/keys";
-import { i18n } from "../../locales/translation";
-import { GetTags, type Archive } from "../../utils/content";
+import PageIntro from '@components/common/PageIntro.astro';
+import PostYears from '@components/common/PostYears.astro';
+import HomeSider from '@components/layout/HomeSider.astro';
+import Cover from '@components/ui/cover/Cover.astro';
+import { siteConfig } from '@constants/site-config';
+import { Layout, TwoColumnLayout } from '@layouts/index';
+import { getSortedPosts, normalizeTag } from '@lib/content';
+import { localizedPath, t } from '@/i18n';
+import { tagRoute } from '../_shared/routes';
 
-export async function getStaticPaths() {
-  const tags = await GetTags();
-  const tagList = Array.from(tags.keys());
-  return tagList.map((tag) => ({
-    params: { tag: tag },
-  }));
+export const getStaticPaths = tagRoute.root;
+interface Props {
+  tag: string;
+  locale: string;
 }
-
-const tags = await GetTags();
-const { tag } = Astro.params;
-
-async function FormatArchiveMap() {
-  const posts = tags.get(tag)!.posts;
-  const tagName = tags.get(tag)!.name;
-  const archiveMap = new Map<number, Array<Archive>>();
-  posts.forEach((post) => {
-    const year = post.date.getFullYear();
-    if (archiveMap.has(year)) archiveMap.get(year)!.push(post);
-    else archiveMap.set(year, [post]);
-  });
-  return { archiveMap, tagName };
-}
-
-const { archiveMap, tagName } = await FormatArchiveMap();
+const { tag, locale } = Astro.props;
+const allPosts = await getSortedPosts(locale);
+const posts = allPosts.filter((post) => post.data.tags?.some((tg) => normalizeTag(tg) === tag));
 ---
-
-<PostArchiveLayout
-  archiveMap={archiveMap}
-  title={tagName}
-  subTitle={i18n(I18nKeys.pages_tags_archive)}
-/>
+<Layout articleTools={false} locale={locale} title={`${t(locale, 'tag.postsWithTag', { name: tag })} | ${siteConfig.title}`} description={t(locale, 'tag.postsWithTag', { name: tag })}>
+  <TwoColumnLayout showPostFooter={false}>
+    <Cover compact slot="cover" title={t(locale, 'tag.postsWithTag', { name: tag })} />
+    <HomeSider slot="sider" />
+    <div class="index-surface shadow-box">
+      <PageIntro stats={[{ value: posts.length, label: t(locale, 'index.posts') }]} breadcrumbs={[{ label: t(locale, 'nav.tags'), href: localizedPath('/tags', locale) }, { label: tag }]} />
+      <PostYears posts={posts} locale={locale} />
+    </div>
+  </TwoColumnLayout>
+</Layout>

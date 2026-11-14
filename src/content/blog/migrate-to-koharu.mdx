@@ -1,0 +1,82 @@
+---
+title: 从 Yukina 到 astro-koharu：博客再次迁移与架构取舍
+date: 2026-11-14
+description: 记录博客从 Yukina 迁移至 astro-koharu 的过程、静态 MDX 适配、放弃剥离 React 与替换 UnoCSS 的权衡，以及基于 Vercel + Neon 接入 Waline 的踩坑记录。
+tags: [博客, Astro, astro-koharu, Waline, 迁移, 重构]
+categories:
+  - 开发笔记
+draft: false
+link: migrate-to-koharu
+---
+
+## 起因
+
+上一篇重建记录结尾我顺手立了个 flag，说「越来越想之后重构一遍了」，还列了一堆诸如加目录、加评论、换 UnoCSS、把网站重构成标准模板之类的宏伟蓝图。
+
+结果呢？拖延症一如既往地稳定发挥，自己的代码最后还是变成了「能跑就行，别动它」的古董状态（说你啥好呢，当年自己搬运的 `!important` 自己都不想看第二眼）。
+
+之前用的 [Yukina](https://github.com/WhitePaper233/yukina) 本身挺好看，但因为那会儿很多我想要的功能（文章目录、更新日期、暗色模式细节、全站搜索）都要自己东拼西凑往里塞。对于一个前端技能树依旧约等于零的人来说，每改一次样式都要跟 Google 和 LLM 搏斗半天，久而久之写文章的欲望全被调样式消耗光了。
+
+既然自己手搓太费命，那不如直接换个本来就已经造好轮子的主题——于是这次盯上了 [astro-koharu](https://github.com/cosZone/astro-koharu)（当前基线 `v7.7.5`）。它继承了我很喜欢的 Shoka 风格，目录、搜索、友链、暗色模式、文章提示块全都是现成的，而且依然支持纯静态输出，完美符合「想折腾又不想太累」的懒人诉求。
+
+## 迁移中死守的几条底线
+
+虽然主题整个换掉了，但有几件事这次没打算凑合：
+
+1. **继续保持纯静态输出与 MDX 支持**
+   `astro-koharu` 默认内容集合主要面向标准 Markdown 和 Shoka 扩展语法，而我之前的几篇文章全都是 `.mdx`（顺便再次怀念当年自己手写半角逗号多敲个空格排查半天的惨痛教训）。好在把 `@astrojs/mdx` 集成和静态构建流程补回来之后，既有的 `.mdx` 文章一篇都不用重写，照样直接打包成纯静态页面。
+
+2. **旧 URL 与历史跳转一个不能丢**
+   本来文章就没几篇，要是换个主题再把老链接全搞 404 了就更说不过去了。每篇文章继续用 frontmatter 里的 `link` 锁死 `/post/<slug>` 路径，同时保留 `vercel.json` 里早期 `/posts/<hash>` 跳转到 `/post/<slug>` 的永久重定向规则，确保老书签和外链照常生效。
+
+3. **一次性还清以前欠下的 TODO**
+   以前文章里写过想自己补的文章目录（TOC）、友链页面、全站静态搜索（Pagefind）和代码高亮增强，这次直接跟着 `astro-koharu` 一起打包上线，也算是换了个方式把旧 flag 拔掉了（只要我直接换新主题，旧主题的坑就不算没填完 x）。
+
+## 一次差点又把自己坑进去的「轻量化」幻想
+
+迁完没两天，我那个「总想把项目改得更极客一点」的老毛病又犯了：能不能顺手把 React 剥离掉，再把上篇 TODO 里念叨过的「用 UnoCSS 代替 Tailwind CSS」也顺便实现了，让博客彻底回到极简零重型框架的状态？
+
+冷静下来把依赖和组件树翻了一遍之后，我火速打消了这个危险的念头：
+
+- **剥离 React 基本等于重写主题**：弹窗、抽屉（Radix UI）、动效编排（Motion）、评论懒加载以及写作室编辑器这些交互岛屿全都长在 React 上。硬拆的结果就是自己手写一整套替代实现——我上次搬运一个属性显示都要靠 `!important` 救命，真拆了大概明年今天博客还在本地报错。
+- **把 Tailwind CSS v4 换成 UnoCSS 属于纯找罪受**：全站样式、主题变量和组件变体已经深度绑定 Tailwind v4，换掉不仅要逐文件重写类名，还得放弃现有工具链里一堆现成检查。
+- **更致命的是会直接跟上游脱钩**：一旦把 UI 和样式底座全魔改一遍，以后 `astro-koharu` 上游发个修复补丁，我这边就只能眼睁睁看着冲突干瞪眼。
+
+而且仔细想想，Astro 的群岛架构本来就把静态 HTML 和交互岛屿切开了——看文章时绝大多数内容依然是静态渲染，评论区也是滚到了才懒加载。为了追求账面上「零框架」的心理安慰而搭进去几周维护成本，纯属自己给自己找活干。
+
+## 依赖升级与克制跟进
+
+借着这次迁移，我顺手把依赖也跟到比较新的状态：把 `astro` 升到了 `7.4.12`，同步更新了 `@astrojs/mdx`（`8.1.6`）、`@astrojs/markdown-remark`（`7.3.9`）等核心集成，还把 Biome 适配到了 `2.6`。
+
+不过这次学乖了，决定对「追新」这件事稍微克制一点：
+
+- **日常跟随主线**：优先保持 Astro 核心和兼容的 Patch/Minor 更新同步，常规小版本交给 Dependabot 分组自动检查。
+- **大版本破坏性更新不硬刚**：像 `motion`、`zod`、`nanostores` 或 TypeScript 7 这类跨代大改动先隔离处理，验证不过就老实按兵不动，绝不为了版本号好看把博客改崩。
+- **改完必跑全套检查**：每次动依赖或配置，都要老老实实跑完 `pnpm lint`、`pnpm check`、`pnpm test` 和 `pnpm build`，确认文章渲染、搜索、RSS 和旧链接重定向都稳了再合并。
+
+## 接入 Waline 评论与顺手踩过的小坑
+
+以前 TODO 里写的是想用 Giscus，但这次把主题支持的几种方案（Waline、Giscus、Twikoo、Remark42）横向对比了一圈，最后还是拍板选了 **Waline**：
+
+- **访客门槛低**：不用强制要求读者登录 GitHub，游客填个昵称就能直接留言。
+- **主题契合度高**：在 `astro-koharu` 里滚到评论区附近才懒加载 SDK，不影响首屏；而且样式直接走 CSS 变量，不用像硬改第三方样式那样到处打补丁。
+- **同在 Vercel 省事**：虽然需要多建一个服务端仓库，但作为独立 Vercel Serverless 项目托管，完全不会把博客本体拖回动态站点。
+
+实际搭配 **Vercel + Neon（PostgreSQL）** 部署时，也顺手踩了两个挺有代表性的小坑：
+
+1. **Neon SQL Editor 报错原来是代理分流背锅**
+   建好库准备进 SQL Editor 跑 `waline.pgsql` 建表时，页面突然甩出一句：`Failed to connect to the database endpoint. Check your network or private link configuration, or contact your workspace admin.`
+   看着那一长串 `private link` 和 `workspace admin`，我差点以为自己刚开局就把数据库权限点炸了。折腾一圈才发现，其实就是**本地代理规则没覆盖全**：Neon 控制台网页走了代理，但 SQL Editor 请求后端计算节点的域名走了直连。把代理规则补齐刷新之后瞬间就通了（果然遇事不决先查网络）。
+
+2. **Vercel 自动注入环境变量别漏掉 `PG_SSL`**
+   在 Vercel 绑定 Neon Storage 后，面板里已经自动生成了 `POSTGRES_HOST`、`POSTGRES_DATABASE`、`POSTGRES_USER`、`POSTGRES_PASSWORD` 等一串 `POSTGRES_*` 变量，Waline 本身也能直接识别这组别名；但 Neon 强制要求开启 SSL 连接，而默认注入的列表里**并没有 SSL 开关**。手动补上一条 `PG_SSL=true`，再切到 Deployments 点一次 Redeploy，服务就顺利跑起来了，顺便绑定了 `comment.maiooizumi.xyz` 子域名。
+
+另外收尾时还顺手补了个小细节：之前社交链接里虽然挂了 Mastodon，但模板默认没有输出 `rel="me"` 属性，导致站点验证一直没法通过。在 `Social.astro` 里给 Mastodon 加上 `rel="me noopener noreferrer"` 之后，等这波代码部署上线就能顺便把认证小绿标也点亮了。
+
+## 接下来
+
+架子总算又一次搭稳了，这次真的打算少折腾点框架，多留点时间写东西~~（信不信由你）~~：
+
+- [x] 把评论系统配起来（已基于 Vercel + Neon 部署并接入 Waline）
+- [ ] 完善「关于我」与友链信息
+- [ ] 把积压的技术笔记和折腾记录慢慢补齐
