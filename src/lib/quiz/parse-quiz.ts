@@ -1,8 +1,20 @@
 import type { ParsedQuiz, QuestionPart, QuizOption, QuizType } from './types';
 
+const UNSAFE_URL_ATTRS = new Set(['href', 'src', 'xlink:href', 'action', 'formaction', 'poster', 'data', 'cite']);
+const UNSAFE_URL_SCHEME = /^(?:javascript|vbscript|data):/i;
+
+function stripControlAndSpace(value: string): string {
+  let result = '';
+  for (const ch of value) {
+    const code = ch.charCodeAt(0);
+    if (code > 32 && code !== 127) result += ch;
+  }
+  return result;
+}
+
 /**
  * Lightweight client-side HTML sanitizer for quiz content.
- * Strips event handler attributes (onclick, onerror, etc.) and javascript: URLs
+ * Strips event handler attributes (onclick, onerror, etc.) and unsafe URL schemes
  * from already-rendered Markdown HTML. Uses the browser DOM API to avoid bundling
  * the heavy sanitize-html library (~50KB) on the client.
  */
@@ -10,7 +22,8 @@ function sanitizeHtml(html: string): string {
   const doc = new DOMParser().parseFromString(`<div>${html}</div>`, 'text/html');
   for (const el of doc.querySelectorAll('*')) {
     for (const attr of Array.from(el.attributes)) {
-      if (attr.name.startsWith('on') || (attr.name === 'href' && attr.value.trimStart().startsWith('javascript:'))) {
+      const name = attr.name.toLowerCase();
+      if (name.startsWith('on') || (UNSAFE_URL_ATTRS.has(name) && UNSAFE_URL_SCHEME.test(stripControlAndSpace(attr.value)))) {
         el.removeAttribute(attr.name);
       }
     }

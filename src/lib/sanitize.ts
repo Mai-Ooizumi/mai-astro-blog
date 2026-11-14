@@ -296,9 +296,13 @@ function processLine(line: string): string {
       line = line.replace(/[*_]{1,2}([^*_]+)[*_]{1,2}/g, '$1');
     }
 
-    // 移除HTML <tag>
+    // 移除HTML <tag>（循环清理直到收敛，避免嵌套标签残留）
     if (line.indexOf('<') >= 0) {
-      line = line.replace(/<[^>]*>/g, '');
+      let prev: string;
+      do {
+        prev = line;
+        line = line.replace(/<[^>]*>/g, '');
+      } while (line !== prev);
     }
   }
 

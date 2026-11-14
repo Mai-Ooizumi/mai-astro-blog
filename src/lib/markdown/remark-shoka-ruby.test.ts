@@ -95,7 +95,7 @@ test('Ruby base and annotation preserve HTML escaping', async () => {
   const html = await render('{&lt;img&gt;^&lt;script&gt;}{A&amp;B^C&amp;D}');
   assert.match(html, /<ruby>&#x3C;img><rp>\(<\/rp><rt>&#x3C;script><\/rt>/);
   assert.match(html, /<ruby>A&#x26;B<rp>\(<\/rp><rt>C&#x26;D<\/rt>/);
-  assert.doesNotMatch(html, /<(img|script)[\s>]/);
+  assert.doesNotMatch(html, /<(img|script)[\s>]/i);
 });
 
 test('escaped spoiler and effect delimiters remain literal inside Ruby syntax', async () => {
