@@ -8,7 +8,7 @@
   },
   "dependencies": {
     "@antv/infographic": "^0.2.13",
-    "@hono/node-server": "^1.14.0",
+    "@hono/node-server": "^2.1.6",
     "@hookform/resolvers": "^5.2.2",
     "@radix-ui/react-dialog": "^1.1.15",
     "@radix-ui/react-slot": "^1.2.4",
