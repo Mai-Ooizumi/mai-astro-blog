@@ -125,17 +125,17 @@ html.motion-off *::after {
 
 /* Continuous decoration stays in its authored static state, without a final animation frame. */
 html.motion-off
-:is(
-  .animate-spin,
-  .hover\:animate-shake,
-  .rainbow,
-  .typewriter-cursor,
-  .audio-player-disc,
-  .lightrope li,
-  .animate-ping,
-  .sider-slot.entering,
-  .cat-404 *
-) {
+  :is(
+    .animate-spin,
+    .hover\:animate-shake,
+    .rainbow,
+    .typewriter-cursor,
+    .audio-player-disc,
+    .lightrope li,
+    .animate-ping,
+    .sider-slot.entering,
+    .cat-404 *
+  ) {
   animation: none !important;
 }
 
@@ -171,16 +171,16 @@ html.motion-off [data-astro-transition-scope] {
   }
 
   :is(
-      .animate-spin,
-      .hover\:animate-shake,
-      .rainbow,
-      .typewriter-cursor,
-      .audio-player-disc,
-      .lightrope li,
-      .animate-ping,
-      .sider-slot.entering,
-      .cat-404 *
-    ) {
+    .animate-spin,
+    .hover\:animate-shake,
+    .rainbow,
+    .typewriter-cursor,
+    .audio-player-disc,
+    .lightrope li,
+    .animate-ping,
+    .sider-slot.entering,
+    .cat-404 *
+  ) {
     animation: none !important;
   }
 

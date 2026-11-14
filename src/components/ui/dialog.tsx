@@ -126,7 +126,7 @@ const DialogContent = forwardRef<React.ComponentRef<typeof DialogPrimitive.Conte
                 key="dialog-content"
                 data-dialog-layer=""
                 className={cn(
-                  'fixed top-1/2 left-1/2 z-50 grid w-full max-w-lg gap-4 rounded-xl border bg-background p-6 shadow-lg',
+                  'bg-background fixed top-1/2 left-1/2 z-50 grid w-full max-w-lg gap-4 rounded-xl border p-6 shadow-lg',
                   'duration-200',
                   className,
                 )}
@@ -139,7 +139,7 @@ const DialogContent = forwardRef<React.ComponentRef<typeof DialogPrimitive.Conte
                 {showClose && (
                   <DialogPrimitive.Close
                     aria-label={closeLabel}
-                    className="absolute top-4 right-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-hidden focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground"
+                    className="ring-offset-background focus:ring-ring data-[state=open]:bg-accent data-[state=open]:text-muted-foreground absolute top-4 right-4 rounded-sm opacity-70 transition-opacity hover:opacity-100 focus:ring-2 focus:ring-offset-2 focus:outline-hidden disabled:pointer-events-none"
                   >
                     <svg
                       aria-hidden="true"
@@ -185,7 +185,7 @@ const DialogTitle = forwardRef<
   React.ComponentRef<typeof DialogPrimitive.Title>,
   React.ComponentPropsWithoutRef<typeof DialogPrimitive.Title>
 >(({ className, ...props }, ref) => (
-  <DialogPrimitive.Title ref={ref} className={cn('font-semibold text-lg leading-none tracking-tight', className)} {...props} />
+  <DialogPrimitive.Title ref={ref} className={cn('text-lg leading-none font-semibold tracking-tight', className)} {...props} />
 ));
 DialogTitle.displayName = DialogPrimitive.Title.displayName;
 
@@ -200,13 +200,13 @@ DialogDescription.displayName = DialogPrimitive.Description.displayName;
 
 export {
   Dialog,
-  DialogPortal,
-  DialogOverlay,
   DialogClose,
-  DialogTrigger,
   DialogContent,
-  DialogHeader,
-  DialogFooter,
-  DialogTitle,
   DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogOverlay,
+  DialogPortal,
+  DialogTitle,
+  DialogTrigger,
 };

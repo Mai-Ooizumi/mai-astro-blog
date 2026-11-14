@@ -46,7 +46,7 @@ const DropdownMenuSubTrigger = forwardRef<
   <DropdownMenuPrimitive.SubTrigger
     ref={ref}
     className={cn(
-      'flex cursor-default select-none items-center gap-2 rounded-sm px-2 py-1.5 text-sm outline-hidden',
+      'flex cursor-default items-center gap-2 rounded-sm px-2 py-1.5 text-sm outline-hidden select-none',
       'focus:bg-accent data-[state=open]:bg-accent',
       '[&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0',
       inset && 'pl-8',
@@ -81,7 +81,7 @@ const DropdownMenuSubContent = forwardRef<
   <DropdownMenuPrimitive.SubContent
     ref={ref}
     className={cn(
-      'z-50 min-w-[8rem] overflow-hidden rounded-md border bg-popover p-1 text-popover-foreground shadow-lg',
+      'bg-popover text-popover-foreground z-50 min-w-[8rem] overflow-hidden rounded-md border p-1 shadow-lg',
       'data-[state=closed]:animate-out data-[state=open]:animate-in',
       'data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0',
       'data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95',
@@ -103,7 +103,7 @@ const DropdownMenuContent = forwardRef<
       ref={ref}
       sideOffset={sideOffset}
       className={cn(
-        'z-50 min-w-[8rem] overflow-hidden rounded-lg border bg-popover/95 p-1 text-popover-foreground shadow-md backdrop-blur-md',
+        'bg-popover/95 text-popover-foreground z-50 min-w-[8rem] overflow-hidden rounded-lg border p-1 shadow-md backdrop-blur-md',
         'data-[state=closed]:animate-out data-[state=open]:animate-in',
         'data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0',
         'data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95',
@@ -126,7 +126,7 @@ const DropdownMenuItem = forwardRef<
   <DropdownMenuPrimitive.Item
     ref={ref}
     className={cn(
-      'relative flex cursor-default select-none items-center gap-2 rounded-sm px-2 py-1.5 text-sm outline-hidden transition-colors',
+      'relative flex cursor-default items-center gap-2 rounded-sm px-2 py-1.5 text-sm outline-hidden transition-colors select-none',
       'focus:bg-accent focus:text-accent-foreground',
       'data-[disabled]:pointer-events-none data-[disabled]:opacity-50',
       '[&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0',
@@ -145,7 +145,7 @@ const DropdownMenuCheckboxItem = forwardRef<
   <DropdownMenuPrimitive.CheckboxItem
     ref={ref}
     className={cn(
-      'relative flex cursor-default select-none items-center rounded-sm py-1.5 pr-2 pl-8 text-sm outline-hidden transition-colors',
+      'relative flex cursor-default items-center rounded-sm py-1.5 pr-2 pl-8 text-sm outline-hidden transition-colors select-none',
       'focus:bg-accent focus:text-accent-foreground',
       'data-[disabled]:pointer-events-none data-[disabled]:opacity-50',
       className,
@@ -183,7 +183,7 @@ const DropdownMenuRadioItem = forwardRef<
   <DropdownMenuPrimitive.RadioItem
     ref={ref}
     className={cn(
-      'relative flex cursor-default select-none items-center rounded-sm py-1.5 pr-2 pl-8 text-sm outline-hidden transition-colors',
+      'relative flex cursor-default items-center rounded-sm py-1.5 pr-2 pl-8 text-sm outline-hidden transition-colors select-none',
       'focus:bg-accent focus:text-accent-foreground',
       'data-[disabled]:pointer-events-none data-[disabled]:opacity-50',
       className,
@@ -211,7 +211,7 @@ const DropdownMenuLabel = forwardRef<
 >(({ className, inset, ...props }, ref) => (
   <DropdownMenuPrimitive.Label
     ref={ref}
-    className={cn('px-2 py-1.5 font-semibold text-muted-foreground text-xs', inset && 'pl-8', className)}
+    className={cn('text-muted-foreground px-2 py-1.5 text-xs font-semibold', inset && 'pl-8', className)}
     {...props}
   />
 ));
@@ -221,7 +221,7 @@ const DropdownMenuSeparator = forwardRef<
   React.ComponentRef<typeof DropdownMenuPrimitive.Separator>,
   React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Separator>
 >(({ className, ...props }, ref) => (
-  <DropdownMenuPrimitive.Separator ref={ref} className={cn('-mx-1 my-1 h-px bg-muted', className)} {...props} />
+  <DropdownMenuPrimitive.Separator ref={ref} className={cn('bg-muted -mx-1 my-1 h-px', className)} {...props} />
 ));
 DropdownMenuSeparator.displayName = DropdownMenuPrimitive.Separator.displayName;
 
@@ -232,18 +232,18 @@ DropdownMenuShortcut.displayName = 'DropdownMenuShortcut';
 
 export {
   DropdownMenu,
-  DropdownMenuTrigger,
-  DropdownMenuContent,
-  DropdownMenuItem,
   DropdownMenuCheckboxItem,
-  DropdownMenuRadioItem,
+  DropdownMenuContent,
+  DropdownMenuGroup,
+  DropdownMenuItem,
   DropdownMenuLabel,
+  DropdownMenuPortal,
+  DropdownMenuRadioGroup,
+  DropdownMenuRadioItem,
   DropdownMenuSeparator,
   DropdownMenuShortcut,
-  DropdownMenuGroup,
-  DropdownMenuPortal,
   DropdownMenuSub,
   DropdownMenuSubContent,
   DropdownMenuSubTrigger,
-  DropdownMenuRadioGroup,
+  DropdownMenuTrigger,
 };

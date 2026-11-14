@@ -96,16 +96,17 @@ export default function FriendCard({ friend, index }: FriendCardProps) {
         target="_blank"
         ref={cardRef}
         className={cn(
-          'friend-card group !no-underline hover:!no-underline relative block h-[200px] w-full cursor-pointer select-none transition-transform duration-300 ease-easeOut',
+          'friend-card group ease-easeOut relative block h-[200px] w-full cursor-pointer !no-underline transition-transform duration-300 select-none hover:!no-underline',
           { 'z-5': isMounted && isChristmasEnabled },
         )}
         style={{ perspective: '1000px' }}
         transition={shouldReduceMotion ? { duration: 0 } : { duration: 0.5, delay: index * 0.05, ...microDampingPreset }}
         onMouseMove={tiltEnabled ? handleMouseMove : undefined}
         onMouseLeave={tiltEnabled ? handleMouseLeave : undefined}
+        rel="noopener"
       >
         <m.div
-          className="relative h-full w-full rounded-2xl bg-card p-3 shadow-xl ring-1 ring-foreground/5 dark:ring-white/10"
+          className="bg-card ring-foreground/5 relative h-full w-full rounded-2xl p-3 shadow-xl ring-1 dark:ring-white/10"
           style={{
             transformStyle: 'preserve-3d',
             rotateX: tiltEnabled ? rotateX : 0,
@@ -113,7 +114,7 @@ export default function FriendCard({ friend, index }: FriendCardProps) {
           }}
         >
           {/* Inner Card Container */}
-          <div className="relative h-full w-full overflow-hidden rounded-xl bg-muted/60">
+          <div className="bg-muted/60 relative h-full w-full overflow-hidden rounded-xl">
             {/* Background Image / Color */}
             <div
               className="absolute inset-0 h-16 w-full"
@@ -122,7 +123,7 @@ export default function FriendCard({ friend, index }: FriendCardProps) {
 
             {/* Avatar */}
             <div className="absolute top-8 left-1/2 -translate-x-1/2">
-              <div className="relative h-14 w-14 overflow-hidden rounded-full border-4 border-card bg-card shadow-lg">
+              <div className="border-card bg-card relative h-14 w-14 overflow-hidden rounded-full border-4 shadow-lg">
                 <img
                   src={avatarImage}
                   alt={friend.owner}
@@ -135,15 +136,15 @@ export default function FriendCard({ friend, index }: FriendCardProps) {
             {/* Content */}
             <div className="mt-24 flex h-full flex-col px-2 pb-3 text-center">
               <p
-                className="truncate font-bold text-foreground text-sm transition-colors group-hover:text-(--card-color)"
+                className="text-foreground truncate text-sm font-bold transition-colors group-hover:text-(--card-color)"
                 style={{ '--card-color': cardColor } as CSSCustomProperties}
               >
                 {friend.owner}
               </p>
-              <p className="mb-1 truncate font-medium text-[10px] text-muted-foreground uppercase tracking-wider">
+              <p className="text-muted-foreground mb-1 truncate text-[10px] font-medium tracking-wider uppercase">
                 {friend.site}
               </p>
-              <p className="line-clamp-2 text-[10px] text-foreground/75">{friend.desc}</p>
+              <p className="text-foreground/75 line-clamp-2 text-[10px]">{friend.desc}</p>
             </div>
           </div>
 
