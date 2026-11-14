@@ -191,7 +191,7 @@
     "knip": "6.45.1",
     "lint-staged": "17.6.0",
     "remark": "^15.0.1",
-    "sharp": "^0.34.5",
+    "sharp": "^0.35.5",
     "shiki": "^4.6.0",
     "sonda": "^0.14.0",
     "strip-markdown": "^6.0.0",
