@@ -45,7 +45,7 @@ test('dist contains only the 4 original posts, required routes/SEO outputs, and 
     'rss.xml',
     'sitemap-index.xml',
     'robots.txt',
-    'img/avatar.png',
+    'img/avatar.webp',
     'pagefind/pagefind.js',
   ];
 

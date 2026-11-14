@@ -1,7 +1,7 @@
 ---
 title: 从 Typecho 到 Astro：博客重建之旅
 date: 2025-07-13
-updated: 2025-07-19
+updated: 2026-11-14
 description: 记录从 Typecho 到 Astro 的博客重建过程。
 tags: [博客, Astro, 静态站点, 重构]
 categories:
@@ -10,9 +10,13 @@ draft: false
 link: blog-rebuild-plan
 ---
 
+:::info
+本文记录的是 2025 年 7 月从 Typecho 迁往 Astro + Yukina 主题时的重建过程。后续博客已进一步迁移至 **astro-koharu**，新的迁移与架构取舍记录见：[从 Yukina 到 astro-koharu：博客再次迁移与架构取舍](/post/migrate-to-koharu)。
+:::
+
 ## 背景
 
-博客从 2015 至今一直用的是Typecho ，当时看中了 Typecho 的轻量、占用小等优点，但是由于名气远不足 Wordpress ，所以社区支持和主题插件都比较少。
+博客从 2015 至今一直用的是 Typecho ，当时看中了 Typecho 的轻量、占用小等优点，但是由于名气远不足 Wordpress ，所以社区支持和主题插件都比较少。
 
 而且 Typecho 的更新和维护比较慢，所以一直都有重建的想法，但想法一直只停留在脑海中。
 
@@ -58,7 +62,7 @@ Astro 的特点是：
 
 极致性能和极致的灵活度，非常酷不是吗？
 
-（但名气也不大啊，你还不如去用 Hugo 或者 Hexo 呢）（不过至少更新不慢文档也全不是吗？）（曾经确实搭过 Hexo ，不过只是为了应付备案审核x）
+（但名气也不大啊，你还不如去用 Hugo 或者 Hexo 呢）（不过至少更新不慢文档也全不是吗？）（曾经确实搭过 Hexo ，不过只是为了应付备案审核 x）
 
 ## 🧑‍🚀 Hello, Astronaut!
 
@@ -130,10 +134,10 @@ const blog = defineCollection({
 
 ## TODO
 
-后续还需要做的事情：
+后续还需要做的事情（2026 年 11 月迁移至 astro-koharu 后回看）：
 
-- [ ] 完善其他页面比如关于我、友链等
-- [ ] 使用 UnoCSS 代替 Tailwind CSS
-- [ ] 添加评论系统，比如 giscus
-- [ ] 文章内添加目录显示
-- [ ] 重构整个网站，统一代码风格，做成标准的主题模板
+- [x] 完善其他页面比如关于我、友链等
+- [ ] ~~使用 UnoCSS 代替 Tailwind CSS~~（已放弃，评估后保留 Tailwind CSS v4，原因见[迁移记录](/post/migrate-to-koharu)）
+- [x] 添加评论系统，比如 giscus / Waline（已接入 Waline）
+- [x] 文章内添加目录显示
+- [x] 重构整个网站，统一代码风格，做成标准的主题模板（已切换为 [astro-koharu](https://github.com/cosZone/astro-koharu)）

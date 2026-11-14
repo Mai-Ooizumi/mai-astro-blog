@@ -12,15 +12,15 @@
 # =============================================================================
 site:
   title: "Mai's Blog" # 网站名称
-  alternate: Mai_Ooizumi # 网站英文名称 用于页脚、Logo、@ handle 等
+  alternate: Mai Ooizumi # 网站英文名称 用于页脚、Logo、@ handle 等
   subtitle: Mai Ooizumi 的个人博客 # 网站副标题
   name: Mai Ooizumi # 作者名称 - 请修改为你的名字
   description: Mai Ooizumi 的个人博客 # 网站描述
-  avatar: /img/avatar.png # 网站头像
+  avatar: /img/avatar.webp # 网站头像
   showLogo: false # 是否显示图形 Logo；默认显示站点名称，启用后可替换 src/assets/svg/logo.svg
   author: Mai Ooizumi # 作者名称 - 请修改为你的名字
   url: https://maiooizumi.xyz/ # 站点 URL 用于 RSS 和 SEO
-  defaultOgImage: /img/avatar.png # 默认 Open Graph 图片
+  defaultOgImage: /img/avatar.webp # 默认 Open Graph 图片
   startYear: 2025 # 建站年份
   timezone: Asia/Shanghai # 时区配置 (IANA 格式)，用于日期显示和处理
   keywords: # SEO 关键词 (全局)
@@ -365,15 +365,15 @@ colophon:
     notice:
       label: 阅读提示
       placement: [meta, banner]
-    # ai:
-    #   label: AI 参与
-    #   placement: [seal]
+    ai:
+      label: AI 参与
+      placement: [seal]
     # art:
     #   label: 图像
     #   placement: [seal]
-    # status:
-    #   label: 文章状态
-    #   placement: [meta, seal]
+    status:
+      label: 文章状态
+      placement: [meta, seal]
     # mood:
     #   label: 写作时
     #   placement: [seal]
@@ -406,14 +406,14 @@ colophon:
       description: 写得比较早，文中的版本和做法可能已经变了。
       tone: warn
     # ai-idea: { group: ai, icon: ri:lightbulb-flash-line, label: 构思, description: 和 AI 聊过选题与结构。 }
-    # ai-polish: { group: ai, icon: ri:magic-line, label: 润色, description: AI 帮忙改过措辞和错字。 }
-    # ai-code: { group: ai, icon: ri:code-s-slash-line, label: 代码, description: 示例代码有 AI 参与编写。 }
+    ai-polish: { group: ai, icon: ri:magic-line, label: 润色, description: AI 帮忙改过措辞和错字。 }
+    ai-code: { group: ai, icon: ri:code-s-slash-line, label: 代码, description: 示例代码有 AI 参与编写。 }
     # ai-translate: { group: ai, icon: ri:translate-2, label: 翻译, description: 译文由 AI 初译，我校对过。 }
     # self-drawn: { group: art, icon: ri:brush-line, label: 自己画的, description: 文中插图是我自己画的。 }
     # photo: { group: art, icon: ri:camera-3-line, label: 自己拍的, description: 照片都是我自己拍的。 }
     # ai-art: { group: art, icon: ri:image-ai-line, label: AI 配图, description: 文中有 AI 生成或协作绘制的图。 }
-    # ongoing: { group: status, icon: ri:refresh-line, label: 持续更新, description: 这篇会不定期补充。 }
-    # wip: { group: status, icon: ri:seedling-line, label: 未完待续, description: 坑还没填完，后面会接着写。 }
+    ongoing: { group: status, icon: ri:refresh-line, label: 持续更新, description: 这篇会不定期补充。 }
+    wip: { group: status, icon: ri:seedling-line, label: 未完待续, description: 坑还没填完，后面会接着写。 }
     # late-night: { group: mood, icon: ri:moon-clear-line, label: 深夜写的 }
     # one-sitting: { group: mood, icon: ri:cup-line, label: 一口气写完 }
 
@@ -559,13 +559,19 @@ navigation:
     # path: # 用于区分不同文章的自定义 js 路径，如果您的文章路径不是 location.pathname，需传此参数
     # lang: # 语言 (默认: 'zh-CN')
 comment:
-  provider: none  # 'remark42' | 'giscus' | 'waline' | 'twikoo' | 'none'
+  provider: waline  # 'remark42' | 'giscus' | 'waline' | 'twikoo' | 'none'
+  waline:
+    serverURL: https://comment.maiooizumi.xyz
 
 analytics:
   umami:
-    enabled: false
-    id: ''
-    endpoint: ''
+    enabled: true
+    id: '2824a39e-a9b6-4181-acd7-e7db63907b87'
+    endpoint: 'https://cloud.umami.is'
+    statistics_display:
+      token: '3GpC2F5Nsji6r1uD'
+      article_page_views: true
+      footer_site_stats: true
 
 # =============================================================================
 # SEO Configuration

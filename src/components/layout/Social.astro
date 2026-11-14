@@ -26,6 +26,7 @@ const columns = Math.ceil(links.length / rows);
             data-tooltip-placement="top"
             aria-label={capitalize(key)}
             target="_blank"
+            rel={key === 'mastodon' ? 'me noopener noreferrer' : 'noopener noreferrer'}
            >
             <Icon name={icon} class="inline-block size-5" />
             <span class="absolute inset-0 -z-10 -translate-x-full translate-y-full rounded-xl transition-transform duration-300 group-hover:translate-x-0 group-hover:translate-y-0" />
