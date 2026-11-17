@@ -87,7 +87,7 @@
     "@coszone/koharu-astro": "0.2.0",
     "@floating-ui/react": "^0.27.20",
     "@giscus/react": "^3.1.0",
-    "@hookform/resolvers": "^5.9.2",
+    "@hookform/resolvers": "^7.0.6",
     "@iconify-json/fa6-regular": "^1.2.4",
     "@iconify-json/fa6-solid": "^1.2.4",
     "@iconify-json/gg": "^1.2.2",
@@ -162,7 +162,7 @@
     "unified": "^11.0.5",
     "unist-util-visit": "^5.2.0",
     "vfile": "^6.0.3",
-    "zod": "^3.25.76"
+    "zod": "^4.6.7"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.12",
