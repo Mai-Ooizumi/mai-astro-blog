@@ -492,8 +492,8 @@ importers:
         specifier: ^3.0.3
         version: 3.0.3
       '@xsai/generate-text':
-        specifier: 0.4.4
-        version: 0.4.4
+        specifier: 0.5.1
+        version: 0.5.1
       chalk:
         specifier: 6.0.1
         version: 6.0.1
@@ -522,8 +522,8 @@ importers:
         specifier: ^15.0.1
         version: 15.0.1(supports-color@7.2.0)
       sharp:
-        specifier: ^0.34.5
-        version: 0.34.5
+        specifier: ^0.35.5
+        version: 0.35.5(@types/node@24.19.2)
       shiki:
         specifier: ^4.6.0
         version: 4.6.0
@@ -3576,14 +3576,14 @@ packages:
   '@webc.site/math@0.1.41':
     resolution: {integrity: sha512-Tev02lqJLaEO+MNMq74lWpzuNZT/8bp2rSSzyDJR/u2ovh1jI3bW5HVveGILVKK+7Owf48KaUG9pd35BNf9mrw==}
 
-  '@xsai/generate-text@0.4.4':
-    resolution: {integrity: sha512-eDLeRaaeY3SyjrICeIfPXksqfk36oXLTcjinDNLrsiFHqmNvxfbq3WRccy6hjZy4aOWhkV+qPFZnB3ZIyTfs8w==}
+  '@xsai/generate-text@0.5.1':
+    resolution: {integrity: sha512-HUFtaa6ekB3CsOGO+7TQN+prgNCwcRQoLkUaG4fpjMwhBi+OtMSRk6Rf2Ef/L+M7OvxsK3aTS1U6ZhXCL53nIA==}
 
-  '@xsai/shared-chat@0.4.4':
-    resolution: {integrity: sha512-R/lJDt6SnENVaJcUCO1USVuO/G6qtCbJqopPqARF1n20KWDbchLwW/nvkuZH1TM9vMxaywVNmO9sNJ+uoWJEPA==}
+  '@xsai/shared-chat@0.5.1':
+    resolution: {integrity: sha512-BUGPc9JBgY+72AklrXG/6BTd9mX1tbn/Xbmjm3a83fXAA1ooAYhevfmCO8yUudeeuhPNHNYzOGwPVc27BJgc3w==}
 
-  '@xsai/shared@0.4.4':
-    resolution: {integrity: sha512-ZrOeRJ0fqV8YRDwyQbYJx1N8Fe2UTl2psjV7ucYJ+gMr3oWzrmNfTX9zrpV9zwzBMUe6VvqhK/iJzz8p4jYlsw==}
+  '@xsai/shared@0.5.1':
+    resolution: {integrity: sha512-Zj27Q46a85zTwWgLz8e+l+/Ajja70LYdLu4FHlwMTaY9OzcAAnpFTgtvpEAmqpnJjW92QmwiYOJg/mEBP3gfNA==}
 
   abbrev@5.0.0:
     resolution: {integrity: sha512-/XrFJgzQQQHpti1raDJC6m4ws6aNktmjBlhk8Fdlk7LwCEuDoieEJJY9OFHjfiFJFFRM2tK+Ky/IsfbbmlMu1w==}
@@ -9687,16 +9687,16 @@ snapshots:
 
   '@webc.site/math@0.1.41': {}
 
-  '@xsai/generate-text@0.4.4':
+  '@xsai/generate-text@0.5.1':
     dependencies:
-      '@xsai/shared': 0.4.4
-      '@xsai/shared-chat': 0.4.4
+      '@xsai/shared': 0.5.1
+      '@xsai/shared-chat': 0.5.1
 
-  '@xsai/shared-chat@0.4.4':
+  '@xsai/shared-chat@0.5.1':
     dependencies:
-      '@xsai/shared': 0.4.4
+      '@xsai/shared': 0.5.1
 
-  '@xsai/shared@0.4.4': {}
+  '@xsai/shared@0.5.1': {}
 
   abbrev@5.0.0: {}
 
@@ -13070,7 +13070,6 @@ snapshots:
       '@img/sharp-win32-ia32': 0.35.5
       '@img/sharp-win32-x64': 0.35.5
       '@types/node': 24.19.2
-    optional: true
 
   shiki@4.6.0:
     dependencies:
