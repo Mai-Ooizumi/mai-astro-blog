@@ -305,8 +305,8 @@ importers:
         specifier: ^3.2.0
         version: 3.2.0(date-fns@4.4.0)
       dompurify:
-        specifier: ^3.4.17
-        version: 3.4.17
+        specifier: ^3.4.18
+        version: 3.4.18
       es-toolkit:
         specifier: ^1.53.2
         version: 1.53.2
@@ -326,26 +326,26 @@ importers:
         specifier: ^11.17.2
         version: 11.17.2
       metascraper:
-        specifier: ^5.58.6
-        version: 5.58.6(debug@4.4.3(supports-color@7.2.0))
+        specifier: ^5.58.7
+        version: 5.58.7(debug@4.4.3(supports-color@7.2.0))
       metascraper-description:
-        specifier: ^5.58.4
-        version: 5.58.4(debug@4.4.3(supports-color@7.2.0))
+        specifier: ^5.58.7
+        version: 5.58.7(debug@4.4.3(supports-color@7.2.0))
       metascraper-image:
-        specifier: ^5.58.4
-        version: 5.58.4(debug@4.4.3(supports-color@7.2.0))
+        specifier: ^5.58.7
+        version: 5.58.7(debug@4.4.3(supports-color@7.2.0))
       metascraper-logo:
-        specifier: ^5.58.4
-        version: 5.58.4(debug@4.4.3(supports-color@7.2.0))
+        specifier: ^5.58.7
+        version: 5.58.7(debug@4.4.3(supports-color@7.2.0))
       metascraper-logo-favicon:
-        specifier: ^5.58.4
-        version: 5.58.4(debug@4.4.3(supports-color@7.2.0))
+        specifier: ^5.58.7
+        version: 5.58.7(debug@4.4.3(supports-color@7.2.0))
       metascraper-title:
-        specifier: ^5.58.4
-        version: 5.58.4(debug@4.4.3(supports-color@7.2.0))
+        specifier: ^5.58.7
+        version: 5.58.7(debug@4.4.3(supports-color@7.2.0))
       metascraper-url:
-        specifier: ^5.58.4
-        version: 5.58.4(debug@4.4.3(supports-color@7.2.0))
+        specifier: ^5.58.7
+        version: 5.58.7(debug@4.4.3(supports-color@7.2.0))
       motion:
         specifier: 12.43.0
         version: 12.43.0(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
@@ -459,8 +459,8 @@ importers:
         specifier: ^2.5.1
         version: 2.5.1(supports-color@7.2.0)
       '@playwright/test':
-        specifier: ^1.65.0
-        version: 1.65.0
+        specifier: ^1.65.1
+        version: 1.65.1
       '@rollup/plugin-yaml':
         specifier: ^5.0.1
         version: 5.0.1(rollup@4.68.2)
@@ -516,8 +516,8 @@ importers:
         specifier: 6.45.1
         version: 6.45.1
       lint-staged:
-        specifier: 17.6.0
-        version: 17.6.0
+        specifier: 17.6.1
+        version: 17.6.1
       remark:
         specifier: ^15.0.1
         version: 15.0.1(supports-color@7.2.0)
@@ -555,8 +555,8 @@ importers:
         specifier: ^0.2.13
         version: 0.2.20
       '@hono/node-server':
-        specifier: ^2.1.6
-        version: 2.1.8(hono@4.13.18)
+        specifier: ^2.1.9
+        version: 2.1.9(hono@4.13.19)
       '@hookform/resolvers':
         specifier: ^5.2.2
         version: 5.9.2(ajv@8.20.0)(react-hook-form@7.92.0(@types/react@19.3.0)(react@19.3.1))(zod@3.25.76)
@@ -576,14 +576,14 @@ importers:
         specifier: ^4.1.0
         version: 4.4.0
       dompurify:
-        specifier: ^3.4.12
-        version: 3.4.17
+        specifier: ^3.4.18
+        version: 3.4.18
       gray-matter:
         specifier: ^4.0.3
         version: 4.0.3
       hono:
-        specifier: ^4.7.0
-        version: 4.13.18
+        specifier: ^4.13.19
+        version: 4.13.19
       js-yaml:
         specifier: ^4.1.1
         version: 4.3.2
@@ -594,26 +594,26 @@ importers:
         specifier: ^11.6.0
         version: 11.17.2
       metascraper:
-        specifier: ^5.46.2
-        version: 5.58.6(debug@4.4.3(supports-color@7.2.0))
+        specifier: ^5.58.7
+        version: 5.58.7(debug@4.4.3(supports-color@7.2.0))
       metascraper-description:
-        specifier: ^5.46.2
-        version: 5.58.4(debug@4.4.3(supports-color@7.2.0))
+        specifier: ^5.58.7
+        version: 5.58.7(debug@4.4.3(supports-color@7.2.0))
       metascraper-image:
-        specifier: ^5.46.2
-        version: 5.58.4(debug@4.4.3(supports-color@7.2.0))
+        specifier: ^5.58.7
+        version: 5.58.7(debug@4.4.3(supports-color@7.2.0))
       metascraper-logo:
-        specifier: ^5.46.2
-        version: 5.58.4(debug@4.4.3(supports-color@7.2.0))
+        specifier: ^5.58.7
+        version: 5.58.7(debug@4.4.3(supports-color@7.2.0))
       metascraper-logo-favicon:
-        specifier: ^5.46.2
-        version: 5.58.4(debug@4.4.3(supports-color@7.2.0))
+        specifier: ^5.58.7
+        version: 5.58.7(debug@4.4.3(supports-color@7.2.0))
       metascraper-title:
-        specifier: ^5.46.2
-        version: 5.58.4(debug@4.4.3(supports-color@7.2.0))
+        specifier: ^5.58.7
+        version: 5.58.7(debug@4.4.3(supports-color@7.2.0))
       metascraper-url:
-        specifier: ^5.46.2
-        version: 5.58.4(debug@4.4.3(supports-color@7.2.0))
+        specifier: ^5.58.7
+        version: 5.58.7(debug@4.4.3(supports-color@7.2.0))
       react:
         specifier: ^19.2.1
         version: 19.3.1
@@ -1454,8 +1454,8 @@ packages:
       react: ^16 || ^17 || ^18 || ^19
       react-dom: ^16 || ^17 || ^18 || ^19
 
-  '@hono/node-server@2.1.8':
-    resolution: {integrity: sha512-jdf7FHh6A1lzjpHHQUgxsg2GeER2vMetnAOfeActzcoli6jamlK+NAwL6Dsr5Fl3BS3tYUQzCdtZjU8Qxv7bEA==}
+  '@hono/node-server@2.1.9':
+    resolution: {integrity: sha512-Sk4NQd3GFY0WZWCzndwFMPwJhtD0y9qjsQ+pjID0/03nK9pxyBCUoUHCho8QYBLBVhi0ssL8UkNPHqbgSOFPIQ==}
     engines: {node: '>=20'}
     peerDependencies:
       hono: ^4 || ^5.0.0-0
@@ -1980,8 +1980,8 @@ packages:
   '@mermaid-js/parser@1.2.1':
     resolution: {integrity: sha512-n12NohV3mrUyUL2o93IgG/ifeW9FTyeJn3zDxkhwa8MJ9Fxg3HQMlA3RiGmD/3UnJvheztkjjQAjA2T4LmUcpw==}
 
-  '@metascraper/helpers@5.58.4':
-    resolution: {integrity: sha512-3pyzjvl+2IjDoZpBhwmFJVyiTKq0wPk6d8tiL+MjeI07++VNutSyGIQZdcQK3cYhs3u+HL2Z+BH4rBQlGJ2yfg==}
+  '@metascraper/helpers@5.58.7':
+    resolution: {integrity: sha512-4mLJsY7WV9EDY//ibLrDolH1yf3MFs/v6m1FET+pSkTw5w+dgXgW1M/Qxv9plzgj55JCd4JBbbL5ublzBwVBWw==}
     engines: {node: '>= 22.13'}
 
   '@nanostores/react@0.8.4':
@@ -2397,8 +2397,8 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@playwright/test@1.65.0':
-    resolution: {integrity: sha512-iGURLGuKDLakSEl7Pgfv8h7f+XLT+V861Wfhz0zlEl5nyFuKUopdkFBPKqTllTUp06aOwPuH8iuUEb3yp3MpbQ==}
+  '@playwright/test@1.65.1':
+    resolution: {integrity: sha512-y+NCIRm2LvY4slUVWvGh1nujJ8RF/hEisIsq2mtUPgdQC4L701bq5hZGMhrpeXjACvwvO9tj5dJqhvM6TP9lbw==}
     engines: {node: '>=20'}
     hasBin: true
 
@@ -4304,8 +4304,8 @@ packages:
     resolution: {integrity: sha512-gYzvtM72ZtxQO0T048kd6HWSbbGCNOUwcnfQ01cqIJ4X2IYKFFHZ5mKvrQETcFXxsRObZulDaKmy//R7TPtsBg==}
     engines: {node: '>=20.19.0'}
 
-  dompurify@3.4.17:
-    resolution: {integrity: sha512-B/pSlYVHQ58kqISD/yDjuJ1yfzI34m1gF4lAod2bwSRhiN4K5Cl3H8Af7hqB2PmTL911tdEudnnXn5FnhRoz0w==}
+  dompurify@3.4.18:
+    resolution: {integrity: sha512-ofe3wI/uNm68HInABYFJYqQxRw1EaKAjNdrFVKqjUY+UZurvNd2L/HuQe097s/4RivWiZyP6tT7aoT8atjfhwg==}
 
   domutils@3.2.2:
     resolution: {integrity: sha512-6kZKyUajlDuqlHKVX1w7gyslj9MPIXzIFiz/rGu35uC1wMi+kMhQwGhl4lt9unC9Vb9INnY9Z3/ZA3+FhASLaw==}
@@ -4709,8 +4709,8 @@ packages:
   hastscript@9.0.3:
     resolution: {integrity: sha512-1ALZXSmCGmW3h8AMz4R4+QKSKFi7sNgXLVwmwB8FYVtl1CwQ3WDkSAEY/d5tp1g/vbQgq2s1WlHgfO3jbw1TsA==}
 
-  hono@4.13.18:
-    resolution: {integrity: sha512-H9q/E1XizaWstJxUW881dmLxEj+t/TrGGnyxINkm4+sK0qUwsMtFdo2BWI9Vs3cIS19MU6b6iCijoUoEf4f3DA==}
+  hono@4.13.19:
+    resolution: {integrity: sha512-KmXvQAXwcAHV+muzbIwoJ23niEB5nMoDVr9WcRkU8mvjUECm/1+7v4Jgp7P7a+H6MLFrh+vXrGonGrGS+RQfkA==}
     engines: {node: '>=16.9.0'}
 
   html-encoding-sniffer@7.0.0:
@@ -5064,8 +5064,8 @@ packages:
       canvas:
         optional: true
 
-  lint-staged@17.6.0:
-    resolution: {integrity: sha512-nOhBfYkZEwkFtNzD5pK9s9LkcWoxJ+whLzEnhqi9nl7zTB5n7tg8+9iYgMGx2Wm3VlLu8cbNj0RACzY+nWi5iQ==}
+  lint-staged@17.6.1:
+    resolution: {integrity: sha512-3MXgVN7BERDR/6CXZs2fDHGc+r0+hlvGAa9wqMlVbIS6RVRuaPOnb5SnN6wMXulwfEy9DXVkMVUN/8cUlpPDnw==}
     engines: {node: '>=22.22.1'}
     hasBin: true
 
@@ -5248,32 +5248,32 @@ packages:
   meshoptimizer@1.1.1:
     resolution: {integrity: sha512-oRFNWJRDA/WTrVj7NWvqa5HqE1t9MYDj2VaWirQCzCCrAd2GHrqR/sQezCxiWATPNlKTcRaPRHPJwIRoPBAp5g==}
 
-  metascraper-description@5.58.4:
-    resolution: {integrity: sha512-uWfbJr7h2FTJKgryAPMGbt5Qr8UMGtl/BsDIehoAZq1sIs+cns4gtJzfclUj22wsEgd5TNJoTXMtMdzVeS2Xdg==}
+  metascraper-description@5.58.7:
+    resolution: {integrity: sha512-zGaS4xHlO4iI7r+nA2CFd4FUp7lksxGmMTKonGJ7LJ0RTwnSEWpJV+Mm1EgMkQq8DMqFZkR98fyNGlOVGbhhmw==}
     engines: {node: '>= 22'}
 
-  metascraper-image@5.58.4:
-    resolution: {integrity: sha512-Ft9XbmVYMjLcf6ohySi8ChVUHt8I5y7XdB8+DYB7QiTarZiAVYojysVzXKj9xhrrpsH/ShFySL3su3uyzSTvLA==}
+  metascraper-image@5.58.7:
+    resolution: {integrity: sha512-QbcamTGlrAZmflQKg8MgFPK8Gy3FUFh54H3bZAiUq7bALBSyiNcIms6ZklcrSGfr1aSloTao37B9mTiZtP7Dxg==}
     engines: {node: '>= 22'}
 
-  metascraper-logo-favicon@5.58.4:
-    resolution: {integrity: sha512-VePE8rkd7S7wmLfHAbQ6M43jI19rWBQmJxortDKXYeE52I9CRzmh8cW4uloqy/ypidBNfUGMhmbqdrbvzkwufA==}
+  metascraper-logo-favicon@5.58.7:
+    resolution: {integrity: sha512-nAsxFV7SRmsoRpr6ys0w+4DmHArm2K0Up5XuWR2ymO/EdNPVGtMAe+Pe0G3o9AQCLw9qUjWuNeM5bKf//ev8Lg==}
     engines: {node: '>= 22'}
 
-  metascraper-logo@5.58.4:
-    resolution: {integrity: sha512-PL/4sQoQGG92+QMEuIHxUuZrnjwh3us7nSEaffEOmVzNR/+L9zSTP6BTEdpZiw9S/v5yDps54kShQ/AhGIMFAg==}
+  metascraper-logo@5.58.7:
+    resolution: {integrity: sha512-uGx42mg5ssxVSR6gVcA0pVwwJGaR3/FrNo1D7z6dLZAyJA7KNAv92gN1vjlpQO7nsz168F+2VppkQ7bsrZnA1A==}
     engines: {node: '>= 22'}
 
-  metascraper-title@5.58.4:
-    resolution: {integrity: sha512-G0/Vhm3kxNhbF0E19TlyxXa3MeIe5AeRfrf50yCyKEbJspeWVX2E+nskSCt+pibQnYUnHxh942KudUoWrzKW5Q==}
+  metascraper-title@5.58.7:
+    resolution: {integrity: sha512-mAL7QGDkqnQ4vFmsKj1c+XjOvfcVEFm6GlmuYzgNGIawuL0JLfamxDI6fakyf7mkXhZHX/WNGVdKTiGLVgQsGg==}
     engines: {node: '>= 22'}
 
-  metascraper-url@5.58.4:
-    resolution: {integrity: sha512-e1buTcAR9cLKa2SuRrJ7+c/Zmguv0MPkUTUo+YrwkwIASFFeVOyOWrwmrPeReK0fpcvfDcc6acruNW8S++DaDg==}
+  metascraper-url@5.58.7:
+    resolution: {integrity: sha512-TZvtb4bzmYPYeJxfcReccDHXY1olH5RTDuZhXtho2FJs+XzPsJPtWkY1dVtu4sOvKcZebPXT/OaOysjcCvpAfA==}
     engines: {node: '>= 22'}
 
-  metascraper@5.58.6:
-    resolution: {integrity: sha512-pAyeLuxiY3MRst2UBD0jjGCm7VFBF8hX4ogNbWnRF9iK3qFTYEQWqUqBTzsnd9628wlJRFi6hZtdw8C0wKr34g==}
+  metascraper@5.58.7:
+    resolution: {integrity: sha512-BlLnBeqAkiL8gGi2wgnIyRsJpHewE4psWhMIMdORDBDoeDstg5tlupllFTM/BDLIh92wFJRLoJYZLty3cv+YaA==}
     engines: {node: '>= 22'}
 
   micromark-core-commonmark@1.1.0:
@@ -5760,13 +5760,13 @@ packages:
   platform@1.3.6:
     resolution: {integrity: sha512-fnWVljUchTro6RiCFvCXBbNhJc2NijN7oIQxbwsyL0buWJPG85v81ehlHI9fXrJsMNgTofEoWIQeClKpgxFLrg==}
 
-  playwright-core@1.65.0:
-    resolution: {integrity: sha512-vNSKgH6YqtN7cdT/L334zo0a+YwkrpicyrHJlWWPIm/Q+Nn2SWInil01oT0mbu96U4GgoRtCYQD9CzJQgju+lA==}
+  playwright-core@1.65.1:
+    resolution: {integrity: sha512-hqPpz7blSMPxWVdoeE1yiBSzXsKiVOd2k+kjCvmUywD2GPO2Dd9HfcWnq9NN0GHbNZDFgZ9JfBFr+X5/BLo0qw==}
     engines: {node: '>=20'}
     hasBin: true
 
-  playwright@1.65.0:
-    resolution: {integrity: sha512-F3AMWcR44qMBt4kq+6Kb6mX7bjGXshktKFOPULd7reED6ZJWevjbNRqysP7q+AATE9kdPEZBibex1BYsvpVoeA==}
+  playwright@1.65.1:
+    resolution: {integrity: sha512-vJ1FuoOrNwOKHUIVEvSt3jT1L+wjjDpwhwIstKtfvTh8XIG4FG4bIFuvNdMxi81LGfAhUgUZleVFaOLY4RIUUw==}
     engines: {node: '>=20'}
     hasBin: true
 
@@ -6230,9 +6230,9 @@ packages:
   strictdom@1.0.1:
     resolution: {integrity: sha512-cEmp9QeXXRmjj/rVp9oyiqcvyocWab/HaoN4+bwFeZ7QzykJD6L3yD4v12K1x0tHpqRqVpJevN3gW7kyM39Bqg==}
 
-  string-argv@0.3.2:
-    resolution: {integrity: sha512-aqD2Q0144Z+/RqG52NeHEkZauTAUWJO8c6yTftGJKO3Tja5tUgIfmIl6kExvhtxSDP7fXB6DvzkfMpCd/F3G+Q==}
-    engines: {node: '>=0.6.19'}
+  string-argv@0.4.0:
+    resolution: {integrity: sha512-UOtaksJ3SK3KLHba2i9I27fvuZNfBlImDP5wKsCOxCDMRDNxlipCe8rmnUAaDpqlQ93upnA0SzF2pjWhttozSA==}
+    engines: {node: '>=16.20.0'}
 
   string-width@7.2.0:
     resolution: {integrity: sha512-tsaTIkKW9b4N+AEj+SVA+WhJzV7/zMhcSu78mLKWSk7cXMOSHsBKFWUs0fWwq8QyK3MgJBQRX6Gbi4kYbdvGkQ==}
@@ -6375,11 +6375,11 @@ packages:
     resolution: {integrity: sha512-QXqwfEl9ddlGBaRFXIvNKK6OhipSiLXuRuLJX5DErz0o0Q0rYxulWLdFryTkV5PkdZct5iMInwYEGe/eR++1AA==}
     hasBin: true
 
-  tldts-core@7.5.1:
-    resolution: {integrity: sha512-GGSowIH9Pp52ym/x0OxBBNqS2DuqlLL91YNnlnj+k+ZWjJQ+ilNxpwP7/RT+iX1gzuafhj1l7j46CNVqm+xAeQ==}
+  tldts-core@7.5.4:
+    resolution: {integrity: sha512-9+4zWtKEDZ3V3FoZ1B97rv+5z5oqp7yeXGVze3CxgQ+CJro9do9DCPD00wxstYZDXDMXsurkBerFfiB6GYtPbA==}
 
-  tldts@7.4.28:
-    resolution: {integrity: sha512-zbyA+C3nBymq7u4gZnKShj7RcyxJuQy66VRF9V9Zx8g1Jl8ui+9DVbV6knlRKaqKX6nSvhhy7D7KM75A6uVf6g==}
+  tldts@7.5.4:
+    resolution: {integrity: sha512-Rn2ABgjHZrA+jzqom5zhxA0hLohzYrIgfCPyhpTUxqsUrcsBYuab49LseR9waB9Jr8/MxdodvMHA91oRiGLO3Q==}
     hasBin: true
 
   toidentifier@1.0.1:
@@ -7864,9 +7864,9 @@ snapshots:
       react: 19.3.1
       react-dom: 19.3.1(react@19.3.1)
 
-  '@hono/node-server@2.1.8(hono@4.13.18)':
+  '@hono/node-server@2.1.9(hono@4.13.19)':
     dependencies:
-      hono: 4.13.18
+      hono: 4.13.19
 
   '@hookform/resolvers@5.9.2(ajv@8.20.0)(react-hook-form@7.92.0(@types/react@19.3.0)(react@19.3.1))(zod@3.25.76)':
     dependencies:
@@ -8289,7 +8289,7 @@ snapshots:
     dependencies:
       '@chevrotain/types': 11.1.2
 
-  '@metascraper/helpers@5.58.4(debug@4.4.3(supports-color@7.2.0))':
+  '@metascraper/helpers@5.58.7(debug@4.4.3(supports-color@7.2.0))':
     dependencies:
       audio-extensions: 0.0.0
       chrono-node: 2.10.3
@@ -8313,7 +8313,7 @@ snapshots:
       normalize-url: 9.0.1
       re2: 1.27.1
       smartquotes: 2.3.2
-      tldts: 7.4.28
+      tldts: 7.5.4
       url-regex-safe: 4.0.0(re2@1.27.1)
       video-extensions: 2.0.0
     transitivePeerDependencies:
@@ -8582,9 +8582,9 @@ snapshots:
   '@pagefind/windows-x64@1.6.0':
     optional: true
 
-  '@playwright/test@1.65.0':
+  '@playwright/test@1.65.1':
     dependencies:
-      playwright: 1.65.0
+      playwright: 1.65.1
 
   '@polka/url@1.0.0-next.29': {}
 
@@ -10467,7 +10467,7 @@ snapshots:
     dependencies:
       domelementtype: 3.0.0
 
-  dompurify@3.4.17:
+  dompurify@3.4.18:
     optionalDependencies:
       '@types/trusted-types': 2.0.7
 
@@ -10970,7 +10970,7 @@ snapshots:
       property-information: 7.2.0
       space-separated-tokens: 2.0.2
 
-  hono@4.13.18: {}
+  hono@4.13.19: {}
 
   html-encoding-sniffer@7.0.0:
     dependencies:
@@ -11290,10 +11290,10 @@ snapshots:
       htmlparser2: 10.1.0
       uhyphen: 0.2.0
 
-  lint-staged@17.6.0:
+  lint-staged@17.6.1:
     dependencies:
       picomatch: 4.0.7
-      string-argv: 0.3.2
+      string-argv: 0.4.0
       tinyexec: 1.3.1
     optionalDependencies:
       yaml: 2.9.1
@@ -11673,7 +11673,7 @@ snapshots:
       d3-sankey: 0.12.3
       dagre-d3-es: 7.0.14
       dayjs: 1.11.23
-      dompurify: 3.4.17
+      dompurify: 3.4.18
       es-toolkit: 1.53.2
       fastdom: 1.0.12
       katex: 0.16.47
@@ -11686,26 +11686,26 @@ snapshots:
 
   meshoptimizer@1.1.1: {}
 
-  metascraper-description@5.58.4(debug@4.4.3(supports-color@7.2.0)):
+  metascraper-description@5.58.7(debug@4.4.3(supports-color@7.2.0)):
     dependencies:
-      '@metascraper/helpers': 5.58.4(debug@4.4.3(supports-color@7.2.0))
+      '@metascraper/helpers': 5.58.7(debug@4.4.3(supports-color@7.2.0))
     transitivePeerDependencies:
       - '@noble/hashes'
       - canvas
       - debug
 
-  metascraper-image@5.58.4(debug@4.4.3(supports-color@7.2.0)):
+  metascraper-image@5.58.7(debug@4.4.3(supports-color@7.2.0)):
     dependencies:
-      '@metascraper/helpers': 5.58.4(debug@4.4.3(supports-color@7.2.0))
+      '@metascraper/helpers': 5.58.7(debug@4.4.3(supports-color@7.2.0))
     transitivePeerDependencies:
       - '@noble/hashes'
       - canvas
       - debug
 
-  metascraper-logo-favicon@5.58.4(debug@4.4.3(supports-color@7.2.0)):
+  metascraper-logo-favicon@5.58.7(debug@4.4.3(supports-color@7.2.0)):
     dependencies:
       '@keyvhq/memoize': 2.2.13
-      '@metascraper/helpers': 5.58.4(debug@4.4.3(supports-color@7.2.0))
+      '@metascraper/helpers': 5.58.7(debug@4.4.3(supports-color@7.2.0))
       lodash: 4.18.1
       reachable-url: 2.1.10
     transitivePeerDependencies:
@@ -11713,34 +11713,34 @@ snapshots:
       - canvas
       - debug
 
-  metascraper-logo@5.58.4(debug@4.4.3(supports-color@7.2.0)):
+  metascraper-logo@5.58.7(debug@4.4.3(supports-color@7.2.0)):
     dependencies:
-      '@metascraper/helpers': 5.58.4(debug@4.4.3(supports-color@7.2.0))
+      '@metascraper/helpers': 5.58.7(debug@4.4.3(supports-color@7.2.0))
       lodash: 4.18.1
     transitivePeerDependencies:
       - '@noble/hashes'
       - canvas
       - debug
 
-  metascraper-title@5.58.4(debug@4.4.3(supports-color@7.2.0)):
+  metascraper-title@5.58.7(debug@4.4.3(supports-color@7.2.0)):
     dependencies:
-      '@metascraper/helpers': 5.58.4(debug@4.4.3(supports-color@7.2.0))
+      '@metascraper/helpers': 5.58.7(debug@4.4.3(supports-color@7.2.0))
     transitivePeerDependencies:
       - '@noble/hashes'
       - canvas
       - debug
 
-  metascraper-url@5.58.4(debug@4.4.3(supports-color@7.2.0)):
+  metascraper-url@5.58.7(debug@4.4.3(supports-color@7.2.0)):
     dependencies:
-      '@metascraper/helpers': 5.58.4(debug@4.4.3(supports-color@7.2.0))
+      '@metascraper/helpers': 5.58.7(debug@4.4.3(supports-color@7.2.0))
     transitivePeerDependencies:
       - '@noble/hashes'
       - canvas
       - debug
 
-  metascraper@5.58.6(debug@4.4.3(supports-color@7.2.0)):
+  metascraper@5.58.7(debug@4.4.3(supports-color@7.2.0)):
     dependencies:
-      '@metascraper/helpers': 5.58.4(debug@4.4.3(supports-color@7.2.0))
+      '@metascraper/helpers': 5.58.7(debug@4.4.3(supports-color@7.2.0))
       cheerio: 1.2.0
       debug-logfmt: 1.4.20(debug@4.4.3(supports-color@7.2.0))
       whoops: 5.1.5
@@ -12495,11 +12495,11 @@ snapshots:
 
   platform@1.3.6: {}
 
-  playwright-core@1.65.0: {}
+  playwright-core@1.65.1: {}
 
-  playwright@1.65.0:
+  playwright@1.65.1:
     dependencies:
-      playwright-core: 1.65.0
+      playwright-core: 1.65.1
 
   points-on-curve@0.2.0: {}
 
@@ -13149,7 +13149,7 @@ snapshots:
 
   strictdom@1.0.1: {}
 
-  string-argv@0.3.2: {}
+  string-argv@0.4.0: {}
 
   string-width@7.2.0:
     dependencies:
@@ -13282,11 +13282,11 @@ snapshots:
 
   tlds@1.261.0: {}
 
-  tldts-core@7.5.1: {}
+  tldts-core@7.5.4: {}
 
-  tldts@7.4.28:
+  tldts@7.5.4:
     dependencies:
-      tldts-core: 7.5.1
+      tldts-core: 7.5.4
 
   toidentifier@1.0.1: {}
 
@@ -13296,7 +13296,7 @@ snapshots:
 
   tough-cookie@6.1.0:
     dependencies:
-      tldts: 7.4.28
+      tldts: 7.5.4
 
   tr46@7.0.0:
     dependencies:
