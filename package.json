@@ -166,7 +166,7 @@
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.12",
-    "@biomejs/biome": "^2.6.7",
+    "@biomejs/biome": "^2.6.8",
     "@huggingface/transformers": "^3.8.1",
     "@inkjs/ui": "^2.0.0",
     "@lint-md/cli": "^2.5.1",
