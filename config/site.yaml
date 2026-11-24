@@ -61,6 +61,7 @@ i18n:
 categoryMap:
   开发笔记: dev-notes
   运维: ops
+  FunRounds-CS2: funrounds
 
 # =============================================================================
 # Featured Categories (Homepage)
@@ -99,7 +100,18 @@ featuredCategories:
 #   highlightOnHome: 是否在首页高亮显示最新文章（可选，默认 true，显式设为 false 可禁用）
 #   links: 相关链接配置（可选）
 # -----------------------------------------------------------------------------
-featuredSeries: []
+featuredSeries:
+  - slug: funrounds
+    categoryName: FunRounds-CS2
+    label: FunRounds-CS2
+    fullName: '[妹萌え!] FunRounds!-CS2 Dev Log'
+    description: 妹萌え! CS2 趣味回合制插件开发日志：记录核心框架重构、玩法复刻与脑洞新机制的折腾过程。
+    cover: /img/cover/12.webp
+    enabled: true
+    icon: ri:gamepad-line
+    highlightOnHome: true
+    links:
+      github: https://github.com/Imomoe-Community/FunRounds-CS2
 
 # =============================================================================
 # Social Links
@@ -368,15 +380,15 @@ colophon:
     ai:
       label: AI 参与
       placement: [seal]
-    # art:
-    #   label: 图像
-    #   placement: [seal]
+    art:
+      label: 图像
+      placement: [seal]
     status:
       label: 文章状态
       placement: [meta, seal]
-    # mood:
-    #   label: 写作时
-    #   placement: [seal]
+    mood:
+      label: 写作时
+      placement: [seal]
   marks:
     handwritten:
       group: authorship
@@ -405,17 +417,17 @@ colophon:
       label: 可能已过时
       description: 写得比较早，文中的版本和做法可能已经变了。
       tone: warn
-    # ai-idea: { group: ai, icon: ri:lightbulb-flash-line, label: 构思, description: 和 AI 聊过选题与结构。 }
+    ai-idea: { group: ai, icon: ri:lightbulb-flash-line, label: 构思, description: 和 AI 聊过选题与结构。 }
     ai-polish: { group: ai, icon: ri:magic-line, label: 润色, description: AI 帮忙改过措辞和错字。 }
     ai-code: { group: ai, icon: ri:code-s-slash-line, label: 代码, description: 示例代码有 AI 参与编写。 }
-    # ai-translate: { group: ai, icon: ri:translate-2, label: 翻译, description: 译文由 AI 初译，我校对过。 }
-    # self-drawn: { group: art, icon: ri:brush-line, label: 自己画的, description: 文中插图是我自己画的。 }
-    # photo: { group: art, icon: ri:camera-3-line, label: 自己拍的, description: 照片都是我自己拍的。 }
-    # ai-art: { group: art, icon: ri:image-ai-line, label: AI 配图, description: 文中有 AI 生成或协作绘制的图。 }
+    ai-translate: { group: ai, icon: ri:translate-2, label: 翻译, description: 译文由 AI 初译，我校对过。 }
+    self-drawn: { group: art, icon: ri:brush-line, label: 自己画的, description: 文中插图是我自己画的。 }
+    photo: { group: art, icon: ri:camera-3-line, label: 自己拍的, description: 照片都是我自己拍的。 }
+    ai-art: { group: art, icon: ri:image-ai-line, label: AI 配图, description: 文中有 AI 生成或协作绘制的图。 }
     ongoing: { group: status, icon: ri:refresh-line, label: 持续更新, description: 这篇会不定期补充。 }
     wip: { group: status, icon: ri:seedling-line, label: 未完待续, description: 坑还没填完，后面会接着写。 }
-    # late-night: { group: mood, icon: ri:moon-clear-line, label: 深夜写的 }
-    # one-sitting: { group: mood, icon: ri:cup-line, label: 一口气写完 }
+    late-night: { group: mood, icon: ri:moon-clear-line, label: 深夜写的 }
+    one-sitting: { group: mood, icon: ri:cup-line, label: 一口气写完 }
 
 # =============================================================================
 # Post Actions
@@ -474,6 +486,12 @@ navigation:
     nameKey: nav.about
     path: /about
     icon: fa6-regular:circle-user
+  - name: 项目
+    icon: ri:code-box-line
+    children:
+      - name: FunRounds!
+        path: /funrounds
+        icon: ri:gamepad-line
 
 # =============================================================================
 # Christmas/Seasonal Features
