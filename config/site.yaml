@@ -146,6 +146,10 @@ social:
     url: https://steamcommunity.com/profiles/76561198080038715
     icon: ri:steam-fill
     color: '#1b2838'
+  whatsapp:
+    url: https://wa.me/Mai_Ooizumi
+    icon: ri:whatsapp-fill
+    color: '#25D366'
   rss:
     url: /rss.xml
     icon: ri:rss-line

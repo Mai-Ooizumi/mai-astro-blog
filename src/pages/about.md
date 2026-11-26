@@ -13,6 +13,7 @@ description: "关于 Mai Ooizumi 与本博客"
 - GitHub: [Mai-Ooizumi](https://github.com/Mai-Ooizumi)
 - Mastodon: [@Mai_Ooizumi](https://mastodon.social/@Mai_Ooizumi)
 - Telegram: [@Mai_Ooizumi](https://t.me/Mai_Ooizumi)
+- Whatsapp: [@Mai_Ooizumi](https://wa.me/Mai_Ooizumi)
 
 ## 关于本站
 
