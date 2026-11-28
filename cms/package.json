@@ -9,7 +9,7 @@
   "dependencies": {
     "@antv/infographic": "^0.2.13",
     "@hono/node-server": "^2.1.9",
-    "@hookform/resolvers": "^5.2.2",
+    "@hookform/resolvers": "^7.0.9",
     "@radix-ui/react-dialog": "^1.1.15",
     "@radix-ui/react-slot": "^1.2.4",
     "class-variance-authority": "^0.7.1",
@@ -38,7 +38,7 @@
     "tailwind-merge": "^2.6.0",
     "transliteration": "^2.6.1",
     "undici": "^7.19.2",
-    "zod": "^3.25.76"
+    "zod": "^4.6.7"
   },
   "devDependencies": {
     "@iconify/react": "^5.2.1",
